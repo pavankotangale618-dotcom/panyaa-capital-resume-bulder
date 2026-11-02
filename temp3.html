@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ROHAN KUMAR - Paid Download Rs.20</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial,sans-serif}
+body{background:#1a2a3a}
+header{background:#fff;color:#b07d3b;padding:10px 15px;display:flex;justify-content:space-between;align-items:center;border-bottom:4px solid #c1965a;position:sticky;top:0;z-index:20}
+header h1{font-size:13px;font-weight:900;color:#b07d3b}
+.btn{padding:8px 14px;border:none;border-radius:20px;font-weight:800;cursor:pointer;font-size:11px;border:2px solid}
+.save{background:#c1965a;color:#fff;border-color:#c1965a}
+.print{background:#fff;color:#333;border-color:#333}
+.pay{background:#ff6a00;color:#fff;border-color:#ff6a00}
+.add{background:#0f4c4c;color:#fff;border-color:#0f4c4c}
+.minus{background:#c53030;color:#fff;border-color:#c53030}
+main{display:grid;grid-template-columns:400px 1fr;min-height:100vh}
+.form-box{background:#fffaf0;padding:14px;max-height:100vh;overflow:auto;border-right:4px solid #c1965a}
+.form-box h3{background:#c1965a;color:#fff;padding:6px 12px;border-radius:20px;font-size:11px;margin:12px 0 6px;text-transform:uppercase}
+.form-box label{font-size:11px;font-weight:700;color:#333;display:block;margin-top:7px}
+.form-box input,.form-box textarea{width:100%;padding:8px;border:1.5px solid #c1965a;border-radius:6px;margin-top:3px;font-size:12px}
+.royal-box{border:1.5px dashed #c1965a;background:#fff;padding:9px;border-radius:8px;margin:6px 0}
+.item-row{display:flex;gap:5px;margin-top:5px}
+.item-row input{flex:1}
+.del{padding:0 8px;background:#c53030;color:#fff;border:none;border-radius:6px;cursor:pointer}
+.preview-box{background:#8a8a8a;padding:15px;overflow:auto;display:flex;justify-content:center;position:relative}
+#resumePage{width:210mm;min-height:297mm;background:#fff;margin:auto;position:relative;box-shadow:0 0 15px rgba(0,0,0,0.4)}
+.top-bar{height:18px;background:#c1965a;width:100%;position:relative}
+.top-bar::after{content:'';position:absolute;left:90px;top:18px;width:0;height:0;border-left:12px solid transparent;border-right:12px solid transparent;border-top:12px solid #c1965a}
+.resume-content{padding:20px 18px 15px}
+.resume-top{display:flex;gap:18px;align-items:flex-start;margin-top:6px}
+.photo-box{width:115px;height:115px;background:#ddd;overflow:hidden;flex-shrink:0;border:1px solid #eee}
+.photo-box img{width:100%;height:100%;object-fit:cover}
+.top-info{flex:1}
+.r-name{font-size:26pt;font-weight:700;color:#c1965a;letter-spacing:1px;text-transform:uppercase}
+.r-contact{margin-top:18px}
+.c-line{display:flex;align-items:flex-start;gap:8px;font-size:9pt;margin-top:7px;color:#333;line-height:1.3}
+.c-icon{width:16px;height:14px;background:#c1965a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:8pt;flex-shrink:0}
+.sec-row{display:flex;margin-top:22px}
+.sec-left{width:115px;flex-shrink:0;padding-right:10px}
+.sec-left b{font-size:8.5pt;text-transform:uppercase;color:#000;line-height:1.2;display:block}
+.sec-left-line{height:3px;background:#c1965a;margin-top:4px;width:100%}
+.sec-right{flex:1;border-top:1px solid #c1965a;padding-top:6px;padding-left:12px}
+.sec-right ul{margin-left:14px;font-size:8.5pt;line-height:1.5;color:#222}
+.sec-right p{font-size:8.5pt;line-height:1.5;color:#222;text-align:justify}
+.skill-2col{display:flex;gap:20px}
+.skill-2col ul{flex:1}
+.tech-b{font-weight:700}
+
+/* PAID DOWNLOAD POPUP - Rs.20 */
+.paid-overlay{position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.85);display:flex;align-items:center;justify-content:center;z-index:50;padding:15px}
+.paid-card{background:#fdf6ee;width:360px;max-width:95%;border-radius:15px;padding:18px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,0.5);border:2px solid #fff}
+.paid-badge{background:#111;color:#fff;padding:6px 14px;border-radius:20px;font-size:12px;font-weight:800;display:inline-block;margin-bottom:10px}
+.paid-card h2{font-size:18px;margin:5px 0}
+.paid-card h3{font-size:13px;color:#333;font-weight:600}
+.qr-box{background:#fff;padding:10px;border-radius:12px;margin:12px auto;width:220px;border:2px solid #111}
+.qr-box img{width:100%;display:block}
+.upi-info{border:1.5px dashed #999;border-radius:8px;padding:8px;font-size:11px;margin:10px 0;background:#fff8f0}
+.utr-input{width:100%;padding:12px;border:2px solid #111;border-radius:10px;font-size:14px;text-align:center;font-weight:700;margin-top:10px}
+.btn-row{display:flex;gap:10px;margin-top:12px}
+.btn-cancel{flex:1;padding:12px;border:2px solid #111;border-radius:25px;background:#fff;font-weight:800;cursor:pointer}
+.btn-verify{flex:1;padding:12px;border:none;border-radius:25px;background:#16a34a;color:#fff;font-weight:800;cursor:pointer}
+.utr-hint{font-size:9px;color:#666;margin-top:6px;text-align:left}
+
+@media print{header,.form-box,.paid-overlay{display:none!important}main{display:block}.preview-box{padding:0;background:#fff}#resumePage{box-shadow:none}}
+</style>
+</head>
+<body>
+<header>
+<h1>ROHAN KUMAR - Same To Same</h1>
+<div style="display:flex;gap:6px">
+<button class="btn pay" id="payBtn" onclick="openPaidPopup()">💳 Pay ₹20 to Download</button>
+<button class="btn save" onclick="saveFile()">💾 Save</button>
+<button class="btn print" onclick="window.print()">🖨️ Print</button>
+</div>
+</header>
+<main>
+<div class="form-box">
+<h3>💳 UPI SETTINGS - Rs.20</h3>
+<div class="royal-box" style="background:#fff3e0;border-color:#ff6a00">
+<label>UPI ID</label><input id="f_upi" value="918446059509@wahdfcbank" oninput="updateQR()">
+<label>Amount</label><input id="f_amount" value="20" type="number" oninput="updateQR()">
+</div>
+
+<h3>👤 Top Info</h3>
+<div class="royal-box">
+<label>Full Name</label><input id="f_name" value="ROHAN KUMAR" oninput="updateResume()">
+<label>Address 1</label><input id="f_addr1" value="22 Malviya Nagar, New Delhi" oninput="updateResume()">
+<label>Pincode</label><input id="f_addr2" value="110017" oninput="updateResume()">
+<label>Mobile</label><input id="f_mobile" value="+91-9876543210" oninput="updateResume()">
+<label>Email</label><input id="f_email" value="rohan.kumar@gmail.com" oninput="updateResume()">
+<label>LinkedIn</label><input id="f_linkedin" value="linkedin.com/in/rohan-kumar" oninput="updateResume()">
+<label>Photo</label><input id="f_photo" type="file" accept="image/*">
+</div>
+<h3>📜 CERTIFICATIONS</h3>
+<div class="royal-box" id="certBox"></div>
+<div style="display:flex;gap:6px"><button class="btn add" style="flex:1" onclick="addItem('cert')">➕ ADD</button><button class="btn minus" style="flex:1" onclick="removeItem('cert')">➖ MINUS</button></div>
+<h3>⚙️ SKILLS</h3>
+<div class="royal-box" id="skillBox"></div>
+<div style="display:flex;gap:6px"><button class="btn add" style="flex:1" onclick="addItem('skill')">➕ ADD</button><button class="btn minus" style="flex:1" onclick="removeItem('skill')">➖ MINUS</button></div>
+<h3>🏦 MEMBERSHIPS</h3>
+<div class="royal-box" id="memberBox"></div>
+<div style="display:flex;gap:6px"><button class="btn add" style="flex:1" onclick="addItem('member')">➕ ADD</button><button class="btn minus" style="flex:1" onclick="removeItem('member')">➖ MINUS</button></div>
+<h3>📝 SUMMARY</h3>
+<textarea id="f_summary" rows="4" oninput="updateResume()">Results-driven and experienced banker with over 10 years of expertise in retail banking, wealth management, and financial analysis. Seeking a senior position in a reputed bank in India to leverage my skills in customer relationship management, strategic planning, and risk assessment.</textarea>
+<h3>💻 TECHNICAL SKILLS</h3>
+<div class="royal-box" id="techBox"></div>
+<div style="display:flex;gap:6px"><button class="btn add" style="flex:1" onclick="addItem('tech')">➕ ADD</button><button class="btn minus" style="flex:1" onclick="removeItem('tech')">➖ MINUS</button></div>
+<h3>🎓 EDUCATION</h3>
+<div class="royal-box">
+<label>College</label><input id="f_college" value="St. Xavier's College, Kolkata, 06/2003 - 05/2006" oninput="updateResume()">
+<label>Degree</label><input id="f_degree" value="Bachelor of Commerce (B.Com): Accounting and Finance" oninput="updateResume()">
+<div id="eduBox"></div>
+<div style="display:flex;gap:6px;margin-top:6px"><button class="btn add" style="flex:1" onclick="addItem('edu')">➕ ADD</button><button class="btn minus" style="flex:1" onclick="removeItem('edu')">➖ MINUS</button></div>
+</div>
+</div>
+
+<div class="preview-box">
+
+<!-- PAID DOWNLOAD POPUP -->
+<div id="paidPopup" class="paid-overlay">
+  <div class="paid-card">
+    <div class="paid-badge">🔒 PAID DOWNLOAD</div>
+    <h2>Pay Rs.<span id="amtText">20</span> to Download</h2>
+    <h3>ROHAN KUMAR</h3>
+    <div class="qr-box"><img id="qrImg" src="" alt="UPI QR"></div>
+    <div class="upi-info">UPI ID: <b id="upiText">918446059509@wahdfcbank</b><br>Amount: <b>₹<span id="amtText2">20</span> Only</b></div>
+    <input id="utrInput" class="utr-input" placeholder="Enter 12-digit UTR No." maxlength="12" inputmode="numeric">
+    <div class="utr-hint">UTR kasa milel? Pay zalyavar GPay/PhonePe > Transaction > Details madhe 12 anki number disel.</div>
+    <div class="btn-row">
+      <button class="btn-cancel" onclick="closePaidPopup()">Cancel</button>
+      <button class="btn-verify" onclick="verifyAndDownload()">✅ Verify &<br>Download</button>
+    </div>
+  </div>
+</div>
+
+<div id="resumePage">
+<div class="top-bar"></div>
+<div class="resume-content">
+<div class="resume-top">
+<div class="photo-box"><img id="p_photo" style="display:none"><div id="ph" style="display:flex;align-items:center;justify-content:center;height:100%;font-size:30px;background:#eee">👤</div></div>
+<div class="top-info">
+<div class="r-name" id="p_name">ROHAN KUMAR</div>
+<div class="r-contact">
+<div class="c-line"><div class="c-icon">📍</div><div><span id="p_addr1">22 Malviya Nagar, New Delhi</span><br><span id="p_addr2">110017</span></div></div>
+<div class="c-line"><div class="c-icon">📞</div><div id="p_mobile">+91-9876543210</div></div>
+<div class="c-line"><div class="c-icon">✉️</div><div id="p_email">rohan.kumar@gmail.com</div></div>
+<div class="c-line"><div class="c-icon">in</div><div id="p_linkedin">linkedin.com/in/rohan-kumar</div></div>
+</div>
+</div>
+</div>
+<div class="sec-row"><div class="sec-left"><b>CERTIFICATIONS</b><div class="sec-left-line"></div></div><div class="sec-right"><ul id="p_cert"></ul></div></div>
+<div class="sec-row"><div class="sec-left"><b>SKILLS</b><div class="sec-left-line"></div></div><div class="sec-right"><div class="skill-2col"><ul id="p_skillL"></ul><ul id="p_skillR"></ul></div></div></div>
+<div class="sec-row"><div class="sec-left"><b>PROFESSIONAL MEMBERSHIPS</b><div class="sec-left-line"></div></div><div class="sec-right"><ul id="p_member"></ul></div></div>
+<div class="sec-row"><div class="sec-left"><b>PROFESSIONAL SUMMARY</b><div class="sec-left-line"></div></div><div class="sec-right"><p id="p_summary"></p></div></div>
+<div class="sec-row"><div class="sec-left"><b>TECHNICAL SKILLS</b><div class="sec-left-line"></div></div><div class="sec-right"><ul id="p_tech"></ul></div></div>
+<div class="sec-row"><div class="sec-left"><b>EDUCATION</b><div class="sec-left-line"></div></div><div class="sec-right"><div style="font-size:8.5pt"><div id="p_college"></div><div id="p_degree" style="font-weight:700"></div><ul id="p_edu" style="margin-left:14px;margin-top:3px"></ul></div></div></div>
+</div>
+</div>
+</div>
+</main>
+<script>
+let data={
+cert:["Certified Financial Planner (CFP)","Chartered Financial Analyst (CFA) Level 1","Certification in Credit Risk Management, National Institute of Bank Management (NIBM)","Certification in Retail Banking, Indian Institute of Banking & Finance (IIBF)"],
+skill:["Communication","Leadership","Teamwork","Adaptability","Conflict resolution","Critical thinking","Time management","Multitasking"],
+member:["Indian Institute of Banking & Finance (IIBF)","Association of Mutual Funds in India (AMFI)","Chartered Financial Analyst (CFA) Institute"],
+tech:["Banking Operations: Extensive experience in retail banking, wealth management, and branch operations.","Financial Analysis: Proficient in financial planning, investment strategies, and risk assessment.","Customer Relations: Strong ability to build and maintain client relationships.","Compliance: Knowledge of banking regulations and compliance standards.","Technology: Proficient in banking software (Finacle, Flexcube) and Microsoft Office Suite."],
+edu:["Graduated with First Class","Held President role with Debate Club"]
+};
+let isPaid = localStorage.getItem('resumePaid_Rohan') === 'true';
+
+function renderBox(t){
+ let id=t=='cert'?'certBox':t=='skill'?'skillBox':t=='member'?'memberBox':t=='tech'?'techBox':'eduBox';
+ let box=document.getElementById(id);box.innerHTML='';
+ data[t].forEach((v,i)=>{box.innerHTML+=`<div class="item-row"><input value="${v.replace(/"/g,'&quot;')}" oninput="data['${t}'][${i}]=this.value;updateResume()"><button class="del" onclick="deleteItem('${t}',${i})">❌</button></div>`;});
+}
+function addItem(t){let v=prompt('Navin add kara:');if(v===null)return;if(!v)v='New Item';data[t].push(v);renderBox(t);updateResume();}
+function removeItem(t){if(data[t].length>1){data[t].pop();renderBox(t);updateResume();}}
+function deleteItem(t,i){if(data[t].length>1){data[t].splice(i,1);renderBox(t);updateResume();}}
+function updateResume(){
+ document.getElementById('p_name').textContent=document.getElementById('f_name').value;
+ document.getElementById('p_addr1').textContent=document.getElementById('f_addr1').value;
+ document.getElementById('p_addr2').textContent=document.getElementById('f_addr2').value;
+ document.getElementById('p_mobile').textContent=document.getElementById('f_mobile').value;
+ document.getElementById('p_email').textContent=document.getElementById('f_email').value;
+ document.getElementById('p_linkedin').textContent=document.getElementById('f_linkedin').value;
+ document.getElementById('p_summary').textContent=document.getElementById('f_summary').value;
+ document.getElementById('p_college').textContent=document.getElementById('f_college').value;
+ document.getElementById('p_degree').textContent=document.getElementById('f_degree').value;
+ let ul=document.getElementById('p_cert');ul.innerHTML='';data.cert.forEach(v=>{let li=document.createElement('li');li.textContent=v;ul.appendChild(li);});
+ let ulL=document.getElementById('p_skillL');ulL.innerHTML='';let ulR=document.getElementById('p_skillR');ulR.innerHTML='';data.skill.forEach((v,i)=>{let li=document.createElement('li');li.textContent=v;if(i<Math.ceil(data.skill.length/2))ulL.appendChild(li);else ulR.appendChild(li);});
+ ul=document.getElementById('p_member');ul.innerHTML='';data.member.forEach(v=>{let li=document.createElement('li');li.textContent=v;ul.appendChild(li);});
+ ul=document.getElementById('p_tech');ul.innerHTML='';data.tech.forEach(v=>{let li=document.createElement('li');let p=v.split(':');if(p.length>1)li.innerHTML=`<span class="tech-b">${p[0]}:</span> ${p.slice(1).join(':')}`;else li.textContent=v;ul.appendChild(li);});
+ ul=document.getElementById('p_edu');ul.innerHTML='';data.edu.forEach(v=>{let li=document.createElement('li');li.textContent=v;ul.appendChild(li);});
+ if(isPaid){document.getElementById('paidPopup').style.display='none'; document.getElementById('payBtn').innerHTML='✅ ₹20 Paid & Unlocked';}
+}
+document.getElementById('f_photo').addEventListener('change',function(){const f=this.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{document.getElementById('p_photo').src=r.result;document.getElementById('p_photo').style.display='block';document.getElementById('ph').style.display='none';};r.readAsDataURL(f);});
+
+// QR + PAYMENT LOGIC - Rs.20
+function updateQR(){
+ let upi = document.getElementById('f_upi').value.trim();
+ let amt = document.getElementById('f_amount').value.trim() || '20';
+ document.getElementById('upiText').textContent = upi;
+ document.getElementById('amtText').textContent = amt;
+ document.getElementById('amtText2').textContent = amt;
+ let upiLink = `upi://pay?pa=${upi}&pn=RohanKumarResume&am=${amt}&cu=INR&tn=Resume_Rs${amt}`;
+ let qrApi = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(upiLink)}`;
+ document.getElementById('qrImg').src = qrApi;
+}
+function openPaidPopup(){document.getElementById('paidPopup').style.display='flex'; updateQR();}
+function closePaidPopup(){document.getElementById('paidPopup').style.display='none';}
+function verifyAndDownload(){
+ let utr = document.getElementById('utrInput').value.trim();
+ if(!/^\d{12}$/.test(utr)){alert('❌ 12-digit UTR taka! GPay/PhonePe > Transaction > Details madhe bhetel.');return;}
+ localStorage.setItem('resumePaid_Rohan','true');
+ localStorage.setItem('lastUTR_Rohan', utr);
+ isPaid=true;
+ document.getElementById('paidPopup').style.display='none';
+ document.getElementById('payBtn').innerHTML='✅ ₹'+document.getElementById('f_amount').value+' Paid & Unlocked';
+ alert('✅ Payment Verified! UTR: '+utr+'\nAta Download Unlock zala!');
+ saveFile();
+}
+function saveFile(){
+ if(!isPaid){openPaidPopup();return;}
+ let html=document.getElementById('resumePage').outerHTML;
+ let full=`<!DOCTYPE html><html><head><meta charset="UTF-8"><style>body{margin:0} #resumePage{width:210mm;min-height:297mm;background:#fff;margin:auto;position:relative} .top-bar{height:18px;background:#c1965a;width:100%} .resume-content{padding:20px 18px} .resume-top{display:flex;gap:18px} .photo-box{width:115px;height:115px;overflow:hidden} .photo-box img{width:100%;height:100%;object-fit:cover} .r-name{font-size:26pt;font-weight:700;color:#c1965a;text-transform:uppercase} .c-line{display:flex;gap:8px;font-size:9pt;margin-top:7px} .c-icon{width:16px;height:14px;background:#c1965a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:8pt} .sec-row{display:flex;margin-top:22px} .sec-left{width:115px} .sec-left b{font-size:8.5pt;text-transform:uppercase} .sec-left-line{height:3px;background:#c1965a;margin-top:4px} .sec-right{flex:1;border-top:1px solid #c1965a;padding-top:6px;padding-left:12px} .sec-right ul{margin-left:14px;font-size:8.5pt;line-height:1.5} .sec-right p{font-size:8.5pt;line-height:1.5;text-align:justify} .skill-2col{display:flex;gap:20px} .skill-2col ul{flex:1} .tech-b{font-weight:700}</style></head><body>${html}</body></html>`;
+ let blob=new Blob([full],{type:'text/html'});let a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='Rohan_Kumar_Resume_Rs20.html';a.click();
+}
+
+['cert','skill','member','tech','edu'].forEach(renderBox);updateResume();updateQR();
+if(isPaid) document.getElementById('paidPopup').style.display='none';
+</script>
+</body>
+</html>

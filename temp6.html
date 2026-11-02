@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PAVAN KOTANAGLE - Paid Rs.20</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial,sans-serif}
+body{background:#0a1930}
+header{background:#0f4c4c;color:#d4af37;padding:12px 15px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;border-bottom:3px solid #d4af37;position:sticky;top:0;z-index:10}
+header h1{font-size:13px;font-weight:900}
+.btn{padding:9px 16px;border:none;border-radius:20px;font-weight:900;cursor:pointer;font-size:11px}
+.save{background:#d4af37;color:#0f4c4c;border:2px solid #d4af37}
+.print{background:#fff;color:#0f4c4c;border:2px solid #d4af37}
+.pay{background:#ff6a00;color:#fff;border:2px solid #ff6a00}
+.cancel{background:transparent;color:#fff;border:2px solid #fff}
+.add{background:#0f4c4c;color:#fff;border:2px solid #d4af37}
+.minus{background:#c53030;color:#fff;border:2px solid #fff}
+main{display:grid;grid-template-columns:380px 1fr;gap:0;min-height:100vh}
+.form-box{background:#fffaf0;padding:15px;max-height:100vh;overflow:auto;border-right:4px solid #0f4c4c}
+.form-box h3{background:#0f4c4c;color:#d4af37;padding:8px 12px;border-radius:20px;font-size:11px;margin:14px 0 8px;text-transform:uppercase;border:1px solid #d4af37}
+.form-box h2{text-align:center;color:#0f4c4c;background:#f0f7f7;padding:10px;border:2px solid #d4af37;border-radius:8px;font-size:13px;margin-bottom:8px}
+.form-box label{font-size:11px;font-weight:800;color:#0f4c4c;display:block;margin-top:8px}
+.form-box input,.form-box textarea{width:100%;padding:9px;border:2px solid #0f4c4c;border-radius:8px;margin-top:3px;font-size:12px;background:#fff}
+.royal-box{border:1.5px dashed #d4af37;background:#fff;padding:10px;border-radius:8px;margin:8px 0}
+.help{font-size:10px;color:#666;background:#f0f7f7;padding:5px 8px;border-radius:4px;margin-top:3px;border-left:3px solid #d4af37}
+.preview-box{background:#cfd8dc;padding:15px;overflow:auto;position:relative}
+#resumePage{width:210mm;min-height:297mm;background:#fff;margin:auto;display:flex;overflow:hidden;box-shadow:0 0 12px rgba(0,0,0,0.3)}
+.left{width:35%;background:#0e2f5b;color:#fff;padding:12px 12px}
+.right{width:65%;background:#fff;padding:12px 14px;color:#000}
+.photo-wrap{width:110px;height:110px;border-radius:50%;border:4px solid #fff;overflow:hidden;margin:8px auto 12px;background:#8bbcff;display:flex;align-items:center;justify-content:center}
+.photo-wrap img{width:100%;height:100%;object-fit:cover}
+.left-head{background:#cfe2ff;color:#0e2f5b;padding:6px 10px;border-radius:20px;font-weight:900;font-size:9.5pt;margin:14px 0 8px;text-transform:uppercase}
+.left-bullet{margin-left:14px;font-size:8pt;line-height:1.6}
+.top-name{font-size:22pt;font-weight:900}.top-name .blue{color:#0b64e0}
+.top-sub{font-size:10pt;color:#333}
+.top-contact{display:flex;gap:10px;font-size:7.5pt;margin-top:8px;flex-wrap:wrap}
+.sec-head{background:#dbe8ff;color:#0e2f5b;padding:6px 12px;border-radius:20px;font-weight:900;font-size:9pt;margin:12px 0 6px;text-transform:uppercase}
+.edu-table{width:100%;border-collapse:collapse;font-size:8pt;text-align:center;margin-top:6px}
+.edu-table th{background:#e8eef8;color:#0e2f5b;padding:6px 3px;border:1px solid #0e2f5b}
+.edu-table td{border:1px solid #7aa0cc;padding:7px 3px}
+.right-bullet{margin-left:16px;font-size:8.5pt;line-height:1.6}
+.del-btn{padding:2px 8px;font-size:10px;border-radius:10px;border:none;background:#c53030;color:#fff;cursor:pointer}
+
+/* PAID - Rs.20 */
+.paid-overlay{position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.85);display:flex;align-items:center;justify-content:center;z-index:50;padding:15px}
+.paid-card{background:#fdf6ee;width:360px;max-width:95%;border-radius:15px;padding:18px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,0.5);border:2px solid #fff}
+.paid-badge{background:#111;color:#fff;padding:6px 14px;border-radius:20px;font-size:12px;font-weight:800;display:inline-block;margin-bottom:10px}
+.paid-card h2{font-size:18px;margin:5px 0}
+.paid-card h3{font-size:13px;color:#333;font-weight:600}
+.qr-box{background:#fff;padding:10px;border-radius:12px;margin:12px auto;width:220px;border:2px solid #111}
+.qr-box img{width:100%;display:block}
+.upi-info{border:1.5px dashed #999;border-radius:8px;padding:8px;font-size:11px;margin:10px 0;background:#fff8f0}
+.utr-input{width:100%;padding:12px;border:2px solid #111;border-radius:10px;font-size:14px;text-align:center;font-weight:700;margin-top:10px}
+.btn-row{display:flex;gap:10px;margin-top:12px}
+.btn-cancel{flex:1;padding:12px;border:2px solid #111;border-radius:25px;background:#fff;font-weight:800;cursor:pointer}
+.btn-verify{flex:1;padding:12px;border:none;border-radius:25px;background:#16a34a;color:#fff;font-weight:800;cursor:pointer}
+.utr-hint{font-size:9px;color:#666;margin-top:6px;text-align:left}
+
+@media print{header,.form-box,.paid-overlay{display:none!important}main{display:block}#resumePage{box-shadow:none}}
+</style>
+</head>
+<body>
+<header>
+<h1>🦁 PANYAA CAPITAL</h1>
+<div style="display:flex;gap:6px;flex-wrap:wrap">
+<button class="btn pay" id="payBtn" onclick="openPaidPopup()">💳 Pay ₹20 to Download</button>
+<button class="btn save" onclick="saveFile()">💾 Save</button>
+<button class="btn print" onclick="window.print()">🖨️ Print</button>
+<button class="btn cancel" onclick="location.reload()">❌ Cancel</button>
+</div>
+</header>
+<main>
+<div class="form-box">
+<h2>👑 EASY FORM</h2>
+
+<h3>💳 UPI - Rs.20</h3>
+<div class="royal-box" style="background:#fff3e0;border-color:#ff6a00">
+<label>UPI ID</label><input id="f_upi" value="918446059509@wahdfcbank" oninput="updateQR()">
+<label>Amount</label><input id="f_amount" value="20" type="number" oninput="updateQR()">
+</div>
+
+<h3>👤 Top Info</h3>
+<div class="royal-box">
+<label>Full Name</label><input id="f_name" value="PAVAN KOTANAGLE" oninput="updateResume()">
+<label>Sub Title</label><input id="f_sub" value="ITI COPA | Fresher" oninput="updateResume()">
+<label>Mobile</label><input id="f_mobile" value="9876543210" oninput="updateResume()">
+<label>Email</label><input id="f_email" value="pavankotanagle@gmail.com" oninput="updateResume()">
+<label>Location</label><input id="f_location" value="Amravati, Maharashtra" oninput="updateResume()">
+<label>Photo</label><input id="f_photo" type="file" accept="image/*">
+</div>
+
+<h3>🎯 Career Objective</h3>
+<textarea id="f_objective" rows="3" oninput="updateResume()">To obtain an opportunity in a reputed organization where I can use my knowledge and skills, learn new technologies, improve my abilities and contribute to the growth of the organization.</textarea>
+
+<h3>🎓 STUDY TABLE</h3>
+<div class="royal-box" id="eduFormBox"></div>
+<div style="display:flex;gap:6px;margin-top:8px">
+<button class="btn add" style="flex:1" onclick="addEduRow()">➕ ADD Row</button>
+<button class="btn minus" style="flex:1" onclick="removeEduRow()">➖ MINUS Row</button>
+</div>
+
+<h3>💻 Skills</h3>
+<div class="royal-box">
+<label>Technical Skills</label><textarea id="f_tech" rows="3" oninput="updateResume()">Basic Computer Knowledge, MS Word, MS Excel and MS PowerPoint, Internet and Email, Windows Operating System, Basic knowledge of HTML, CSS and JavaScript</textarea>
+<label>Skills (Left)</label><textarea id="f_skills" rows="3" oninput="updateResume()">Basic Computer Knowledge, MS Word, MS Excel, MS PowerPoint, Internet & Email, Windows Operating System, Basic HTML, CSS, JavaScript</textarea>
+<label>Strengths</label><textarea id="f_strengths" rows="3" oninput="updateResume()">Hardworking and Dedicated, Quick Learner, Positive Attitude, Good Communication Skills, Willingness to Learn New Skills</textarea>
+<label>Hobbies</label><textarea id="f_hobbies" rows="2" oninput="updateResume()">Learning Computer Technology, Exploring New Skills, Watching Tech Videos</textarea>
+<label>Experience</label><input id="f_exp" value="Fresher (No Work Experience)" oninput="updateResume()">
+<label>Place / Date</label><div style="display:flex;gap:6px"><input id="f_place" value="Amravati" oninput="updateResume()"><input id="f_date" value="" oninput="updateResume()"></div>
+</div>
+</div>
+
+<div class="preview-box">
+
+<div id="paidPopup" class="paid-overlay">
+  <div class="paid-card">
+    <div class="paid-badge">🔒 PAID DOWNLOAD</div>
+    <h2>Pay Rs.<span id="amtText">20</span> to Download</h2>
+    <h3>PAVAN KOTANAGLE</h3>
+    <div class="qr-box"><img id="qrImg" src="" alt="UPI QR"></div>
+    <div class="upi-info">UPI ID: <b id="upiText">918446059509@wahdfcbank</b><br>Amount: <b>₹<span id="amtText2">20</span> Only</b></div>
+    <input id="utrInput" class="utr-input" placeholder="Enter 12-digit UTR No." maxlength="12" inputmode="numeric">
+    <div class="utr-hint">Pay zalyavar GPay/PhonePe > Transaction > Details madhe 12 anki UTR disel.</div>
+    <div class="btn-row">
+      <button class="btn-cancel" onclick="closePaidPopup()">Cancel</button>
+      <button class="btn-verify" onclick="verifyAndDownload()">✅ Verify &<br>Download</button>
+    </div>
+  </div>
+</div>
+
+<div id="resumePage">
+<div class="left">
+<div class="photo-wrap"><img id="p_photo" style="display:none"><div id="ph" style="font-size:28px"></div></div>
+<div class="left-head">⚙️ SKILLS</div><ul class="left-bullet" id="p_skills"></ul>
+<div class="left-head">📊 STRENGTHS</div><ul class="left-bullet" id="p_strengths"></ul>
+<div class="left-head">❤️ HOBBIES</div><ul class="left-bullet" id="p_hobbies"></ul>
+</div>
+<div class="right">
+<div class="top-name"><span id="p_fname">PAVAN</span> <span class="blue" id="p_lname">KOTANAGLE</span></div>
+<div class="top-sub" id="p_sub">ITI COPA | Fresher</div>
+<div class="top-contact"><div>📞 <span id="p_mobile">9876543210</span></div><div>✉️ <span id="p_email">pavankotanagle@gmail.com</span></div><div>📍 <span id="p_location">Amravati</span></div></div>
+<div class="sec-head">🎯 CAREER OBJECTIVE</div><div style="font-size:8.5pt;text-align:justify" id="p_objective"></div>
+<div class="sec-head">🎓 EDUCATIONAL QUALIFICATION</div>
+<table class="edu-table" id="eduTable"></table>
+<div class="sec-head">🖥️ TECHNICAL SKILLS</div><ul class="right-bullet" id="p_tech"></ul>
+<div class="sec-head">💼 EXPERIENCE</div><ul class="right-bullet"><li id="p_exp">Fresher</li></ul>
+<div class="sec-head">✒️ DECLARATION</div><div style="font-size:8pt">I hereby declare that the information provided above is true and correct to the best of my knowledge and belief.</div>
+<div style="display:flex;justify-content:space-between;margin-top:15px;font-size:9pt"><div>Place: <span id="p_place">Amravati</span><br>Date: <span id="p_date">__________</span></div><div style="text-align:right"><div style="font-family:'Brush Script MT',cursive;font-size:16pt" id="p_sign">Pavan Kotanagle</div></div></div>
+</div>
+</div>
+</div>
+</main>
+<script>
+let eduData=[{q:'10th',s:'',y:'',p:''},{q:'12th',s:'',y:'',p:''},{q:'ITI (COPA)',s:'',y:'',p:''}];
+let isPaid = localStorage.getItem('resumePaid_Pavan') === 'true';
+function renderEduForm(){
+ let box=document.getElementById('eduFormBox');box.innerHTML='';
+ eduData.forEach((row,i)=>{
+  box.innerHTML+=`<div style="border:1.5px solid #0f4c4c;padding:8px;border-radius:8px;margin-bottom:8px;background:#fffaf0">
+  <div style="display:flex;justify-content:space-between"><label style="margin-top:0">Row ${i+1}</label><button class="del-btn" onclick="deleteRow(${i})">❌ Delete</button></div>
+  <input placeholder="Qualification" value="${row.q}" oninput="eduData[${i}].q=this.value;updateResume()">
+  <input placeholder="School / Institute" value="${row.s}" oninput="eduData[${i}].s=this.value;updateResume()" style="margin-top:4px">
+  <div style="display:flex;gap:6px;margin-top:4px"><input placeholder="Year" value="${row.y}" oninput="eduData[${i}].y=this.value;updateResume()"><input placeholder="Percentage" value="${row.p}" oninput="eduData[${i}].p=this.value;updateResume()"></div>
+  </div>`;
+ });
+}
+function addEduRow(){eduData.push({q:'',s:'',y:'',p:''});renderEduForm();updateResume();}
+function removeEduRow(){if(eduData.length>1){eduData.pop();renderEduForm();updateResume();}else alert('Minimum 1 row');}
+function deleteRow(i){if(eduData.length>1){eduData.splice(i,1);renderEduForm();updateResume();}else alert('Minimum 1 row');}
+function updateResume(){
+let g=id=>document.getElementById(id).value;
+let full=g('f_name').trim()||'PAVAN KOTANAGLE';let parts=full.split(' ');document.getElementById('p_fname').textContent=parts[0];document.getElementById('p_lname').textContent=parts.slice(1).join(' ');
+document.getElementById('p_sub').textContent=g('f_sub');document.getElementById('p_mobile').textContent=g('f_mobile');document.getElementById('p_email').textContent=g('f_email');document.getElementById('p_location').textContent=g('f_location');
+document.getElementById('p_objective').textContent=g('f_objective');document.getElementById('p_exp').textContent=g('f_exp');document.getElementById('p_place').textContent=g('f_place');document.getElementById('p_date').textContent=g('f_date')||'__________';document.getElementById('p_sign').textContent=g('f_name');
+let table=document.getElementById('eduTable');table.innerHTML='<tr><th>Qualification</th><th>School / Institute</th><th>Year</th><th>Percentage</th></tr>';
+eduData.forEach(r=>{let tr=document.createElement('tr');tr.innerHTML=`<td>${r.q||'____'}</td><td>${r.s||'____'}</td><td>${r.y||'____'}</td><td>${r.p||'____'}</td>`;table.appendChild(tr);});
+function fillList(id,txt){let ul=document.getElementById(id);ul.innerHTML='';txt.split(',').map(s=>s.trim()).filter(s=>s).forEach(s=>{let li=document.createElement('li');li.textContent=s;ul.appendChild(li);});}
+fillList('p_tech',g('f_tech'));fillList('p_skills',g('f_skills'));fillList('p_strengths',g('f_strengths'));fillList('p_hobbies',g('f_hobbies'));
+if(isPaid){document.getElementById('paidPopup').style.display='none'; document.getElementById('payBtn').innerHTML='✅ ₹20 Paid';}
+}
+document.getElementById('f_photo').addEventListener('change',function(){const f=this.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{document.getElementById('p_photo').src=r.result;document.getElementById('p_photo').style.display='block';document.getElementById('ph').style.display='none';};r.readAsDataURL(f);});
+
+function updateQR(){
+ let upi = document.getElementById('f_upi').value.trim();
+ let amt = document.getElementById('f_amount').value.trim() || '20';
+ document.getElementById('upiText').textContent = upi;
+ document.getElementById('amtText').textContent = amt;
+ document.getElementById('amtText2').textContent = amt;
+ let upiLink = `upi://pay?pa=${upi}&pn=PavanKotanagle&am=${amt}&cu=INR&tn=Resume_Rs${amt}`;
+ let qrApi = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(upiLink)}`;
+ document.getElementById('qrImg').src = qrApi;
+}
+function openPaidPopup(){document.getElementById('paidPopup').style.display='flex'; updateQR();}
+function closePaidPopup(){document.getElementById('paidPopup').style.display='none';}
+function verifyAndDownload(){
+ let utr = document.getElementById('utrInput').value.trim();
+ if(!/^\d{12}$/.test(utr)){alert('❌ 12-digit UTR taka!');return;}
+ localStorage.setItem('resumePaid_Pavan','true');
+ isPaid=true;
+ document.getElementById('paidPopup').style.display='none';
+ document.getElementById('payBtn').innerHTML='✅ ₹20 Paid & Unlocked';
+ alert('✅ Payment Verified! UTR: '+utr);
+ saveFile();
+}
+function saveFile(){
+ if(!isPaid){openPaidPopup();return;}
+ let html=document.getElementById('resumePage').outerHTML;
+ let blob=new Blob([html],{type:'text/html'});
+ let a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='Pavan_Resume_Rs20.html';a.click();
+}
+renderEduForm();updateResume();updateQR();
+if(isPaid) document.getElementById('paidPopup').style.display='none';
+</script>
+</body>
+</html>

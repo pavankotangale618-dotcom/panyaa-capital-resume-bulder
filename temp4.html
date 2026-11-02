@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PRIYA PATEL - Paid Rs.20</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Inter,Arial,sans-serif}
+body{background:#2a2f3a}
+header{background:#fff;padding:10px 15px;display:flex;justify-content:space-between;align-items:center;border-bottom:4px solid #b38b3a;position:sticky;top:0;z-index:20}
+header h1{font-size:12px;font-weight:900;color:#111}
+.btn{padding:8px 14px;border:none;border-radius:20px;font-weight:800;cursor:pointer;font-size:11px;border:2px solid}
+.save{background:#b38b3a;color:#fff;border-color:#b38b3a}
+.print{background:#fff;color:#111;border-color:#111}
+.pay{background:#ff6a00;color:#fff;border-color:#ff6a00}
+.add{background:#111;color:#fff;border-color:#111}
+.minus{background:#c53030;color:#fff;border-color:#c53030}
+main{display:grid;grid-template-columns:400px 1fr;min-height:100vh}
+.form-box{background:#fffaf0;padding:14px;max-height:100vh;overflow:auto;border-right:4px solid #b38b3a}
+.form-box h3{background:#111;color:#b38b3a;padding:6px 12px;border-radius:20px;font-size:11px;margin:12px 0 6px;text-transform:uppercase}
+.form-box label{font-size:11px;font-weight:700;color:#333;display:block;margin-top:7px}
+.form-box input,.form-box textarea{width:100%;padding:8px;border:1.5px solid #b38b3a;border-radius:6px;margin-top:3px;font-size:12px}
+.royal-box{border:1.5px dashed #b38b3a;background:#fff;padding:9px;border-radius:8px;margin:6px 0}
+.item-row{display:flex;gap:5px;margin-top:5px}
+.item-row input{flex:1}
+.del{padding:0 8px;background:#c53030;color:#fff;border:none;border-radius:6px;cursor:pointer}
+.preview-box{background:#888;padding:15px;overflow:auto;display:flex;justify-content:center;position:relative}
+#resumePage{width:210mm;min-height:297mm;background:#fdfcfa;margin:auto;box-shadow:0 0 20px rgba(0,0,0,0.4);padding:0;display:flex;flex-direction:column}
+.resume-inner{padding:0;flex:1}
+.top-section{padding:32px 32px 20px;display:flex;justify-content:space-between;align-items:flex-start;border-top:2px solid #b38b3a;border-bottom:1.5px solid #b38b3a}
+.top-left .r-name{font-size:32pt;font-weight:900;color:#000;letter-spacing:0.5px;line-height:1;text-transform:uppercase}
+.top-left .r-degree{font-size:13pt;font-weight:700;color:#b38b3a;margin-top:6px;letter-spacing:1.5px;text-transform:uppercase}
+.top-right{text-align:right;font-size:9pt;line-height:1.8;color:#111}
+.top-right .c-line{display:flex;justify-content:flex-end;gap:8px;align-items:center}
+.gold-icon{color:#b38b3a;font-size:11pt}
+.main-two{display:flex;padding:28px 0 0;min-height:520px}
+.left-col{width:50%;padding:0 28px;border-right:1.2px solid #d4c08a}
+.right-col{width:50%;padding:0 28px}
+.sec-title{font-size:13pt;font-weight:800;color:#000;text-transform:uppercase;letter-spacing:0.5px}
+.sec-line{height:1.5px;background:#b38b3a;width:90px;margin-top:4px}
+.sec-text{font-size:8.5pt;color:#111;line-height:1.6;margin-top:14px;text-align:justify}
+.skill-ul{margin-top:14px;list-style:none}
+.skill-ul li{font-size:8.8pt;color:#111;margin-top:8px;position:relative;padding-left:12px}
+.skill-ul li::before{content:'•';color:#b38b3a;position:absolute;left:0;font-weight:900}
+.edu-block{margin-top:16px}
+.edu-title{font-size:10.5pt;font-weight:800;color:#000}
+.edu-sub{font-size:8.8pt;color:#000;margin-top:2px}
+.per-table{margin-top:14px;font-size:8.8pt;line-height:2}
+.per-table b{color:#000}
+.per-table span{margin-left:12px}
+.lang-table{margin-top:14px;font-size:8.8pt;line-height:2.2}
+.lang-table li{display:flex;justify-content:space-between;list-style:none}
+.lang-table li::before{content:'•';color:#b38b3a;margin-right:8px}
+.decl-title{margin-top:36px}
+.decl-text{font-size:8.5pt;line-height:1.6;margin-top:14px}
+.place-date{margin-top:18px;font-size:8.8pt;line-height:1.7}
+.signature{margin-top:28px;font-size:10pt;font-weight:700}
+.footer-gold{text-align:center;color:#b38b3a;font-size:8pt;padding:18px 0 14px;letter-spacing:0.5px;margin-top:auto;border-top:1px solid #f0e6cc}
+
+/* PAID DOWNLOAD - Rs.20 */
+.paid-overlay{position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.85);display:flex;align-items:center;justify-content:center;z-index:50;padding:15px}
+.paid-card{background:#fdf6ee;width:360px;max-width:95%;border-radius:15px;padding:18px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,0.5);border:2px solid #fff}
+.paid-badge{background:#111;color:#fff;padding:6px 14px;border-radius:20px;font-size:12px;font-weight:800;display:inline-block;margin-bottom:10px}
+.paid-card h2{font-size:18px;margin:5px 0}
+.paid-card h3{font-size:13px;color:#333;font-weight:600}
+.qr-box{background:#fff;padding:10px;border-radius:12px;margin:12px auto;width:220px;border:2px solid #111}
+.qr-box img{width:100%;display:block}
+.upi-info{border:1.5px dashed #999;border-radius:8px;padding:8px;font-size:11px;margin:10px 0;background:#fff8f0}
+.utr-input{width:100%;padding:12px;border:2px solid #111;border-radius:10px;font-size:14px;text-align:center;font-weight:700;margin-top:10px}
+.btn-row{display:flex;gap:10px;margin-top:12px}
+.btn-cancel{flex:1;padding:12px;border:2px solid #111;border-radius:25px;background:#fff;font-weight:800;cursor:pointer}
+.btn-verify{flex:1;padding:12px;border:none;border-radius:25px;background:#16a34a;color:#fff;font-weight:800;cursor:pointer}
+.utr-hint{font-size:9px;color:#666;margin-top:6px;text-align:left}
+
+@media print{header,.form-box,.paid-overlay{display:none!important}main{display:block}.preview-box{padding:0;background:#fff}#resumePage{box-shadow:none;width:210mm}}
+</style>
+</head>
+<body>
+<header>
+<h1>PRIYA PATEL - Same To Same A4</h1>
+<div style="display:flex;gap:6px">
+<button class="btn pay" id="payBtn" onclick="openPaidPopup()">💳 Pay ₹20 to Download</button>
+<button class="btn save" onclick="saveFile()">💾 Save</button>
+<button class="btn print" onclick="window.print()">🖨️ Print</button>
+</div>
+</header>
+<main>
+<div class="form-box">
+<h3>💳 UPI - Rs.20</h3>
+<div class="royal-box" style="background:#fff3e0;border-color:#ff6a00">
+<label>UPI ID</label><input id="f_upi" value="918446059509@wahdfcbank" oninput="updateQR()">
+<label>Amount</label><input id="f_amount" value="20" type="number" oninput="updateQR()">
+</div>
+
+<h3>👤 Top</h3>
+<div class="royal-box">
+<label>Full Name</label><input id="f_name" value="PRIYA PATEL" oninput="updateResume()">
+<label>Degree / Title</label><input id="f_title" value="B.A. GRADUATE" oninput="updateResume()">
+<label>Email</label><input id="f_email" value="priya.patel@email.com" oninput="updateResume()">
+<label>Mobile</label><input id="f_mobile" value="+91 98765 43210" oninput="updateResume()">
+<label>Location</label><input id="f_location" value="Ahmedabad, Gujarat, India" oninput="updateResume()">
+</div>
+<h3>📝 Profile Summary</h3>
+<textarea id="f_summary" rows="5" oninput="updateResume()">Motivated B.A. Graduate from Gujarat University with strong communication, research, and analytical skills. Detail-oriented and organized, seeking to contribute effectively in administrative, content, or research roles. Eager to learn, reliable, and committed to delivering quality work with professionalism and integrity.</textarea>
+<h3>⭐ Skills - ADD / MINUS</h3>
+<div class="royal-box" id="skillBox"></div>
+<div style="display:flex;gap:6px"><button class="btn add" style="flex:1" onclick="addItem('skill')">➕ ADD Skill</button><button class="btn minus" style="flex:1" onclick="removeItem('skill')">➖ MINUS</button></div>
+<h3>🎓 Education - ADD / MINUS</h3>
+<div class="royal-box" id="eduBox"></div>
+<div style="display:flex;gap:6px"><button class="btn add" style="flex:1" onclick="addItem('edu')">➕ ADD Education</button><button class="btn minus" style="flex:1" onclick="removeItem('edu')">➖ MINUS</button></div>
+<h3>👤 Personal Details</h3>
+<div class="royal-box">
+<label>Father's Name</label><input id="f_father" value="Mr. Rajesh Patel" oninput="updateResume()">
+<label>Date of Birth</label><input id="f_dob" value="15 March 2002" oninput="updateResume()">
+<label>Nationality</label><input id="f_nation" value="Indian" oninput="updateResume()">
+<label>Gender</label><input id="f_gender" value="Female" oninput="updateResume()">
+</div>
+<h3>🌐 Languages - ADD / MINUS</h3>
+<div class="royal-box" id="langBox"></div>
+<div style="display:flex;gap:6px"><button class="btn add" style="flex:1" onclick="addItem('lang')">➕ ADD Language</button><button class="btn minus" style="flex:1" onclick="removeItem('lang')">➖ MINUS</button></div>
+<h3>✒️ Declaration</h3>
+<div class="royal-box">
+<label>Place</label><input id="f_place" value="Ahmedabad, Gujarat" oninput="updateResume()">
+<label>Date</label><input id="f_date" value="10th September 2025" oninput="updateResume()">
+<label>Signature Name</label><input id="f_sign" value="(PRIYA PATEL)" oninput="updateResume()">
+<textarea id="f_decl" rows="2" oninput="updateResume()">I hereby declare that the information provided above is true and correct to the best of my knowledge and belief.</textarea>
+</div>
+</div>
+
+<div class="preview-box">
+
+<!-- PAID DOWNLOAD POPUP - Rs.20 -->
+<div id="paidPopup" class="paid-overlay">
+  <div class="paid-card">
+    <div class="paid-badge">🔒 PAID DOWNLOAD</div>
+    <h2>Pay Rs.<span id="amtText">20</span> to Download</h2>
+    <h3>PRIYA PATEL</h3>
+    <div class="qr-box"><img id="qrImg" src="" alt="UPI QR"></div>
+    <div class="upi-info">UPI ID: <b id="upiText">918446059509@wahdfcbank</b><br>Amount: <b>₹<span id="amtText2">20</span> Only</b></div>
+    <input id="utrInput" class="utr-input" placeholder="Enter 12-digit UTR No." maxlength="12" inputmode="numeric">
+    <div class="utr-hint">UTR kasa milel? Pay zalyavar GPay/PhonePe > Transaction > Details madhe 12 anki number disel.</div>
+    <div class="btn-row">
+      <button class="btn-cancel" onclick="closePaidPopup()">Cancel</button>
+      <button class="btn-verify" onclick="verifyAndDownload()">✅ Verify &<br>Download</button>
+    </div>
+  </div>
+</div>
+
+<div id="resumePage">
+<div class="resume-inner">
+<div class="top-section">
+<div class="top-left"><div class="r-name" id="p_name">PRIYA PATEL</div><div class="r-degree" id="p_title">B.A. GRADUATE</div></div>
+<div class="top-right">
+<div class="c-line"><span id="p_email">priya.patel@email.com</span><span class="gold-icon">✉️</span></div>
+<div class="c-line"><span id="p_mobile">+91 98765 43210</span><span class="gold-icon">📞</span></div>
+<div class="c-line"><span id="p_location">Ahmedabad, Gujarat, India</span><span class="gold-icon">📍</span></div>
+</div>
+</div>
+<div class="main-two">
+<div class="left-col">
+<div class="sec-title">Profile Summary</div><div class="sec-line"></div>
+<div class="sec-text" id="p_summary"></div>
+<div class="sec-title" style="margin-top:28px">Skills</div><div class="sec-line" style="width:60px"></div>
+<ul class="skill-ul" id="p_skill"></ul>
+<div class="sec-title decl-title">Declaration</div><div class="sec-line" style="width:110px"></div>
+<div class="sec-text" id="p_decl"></div>
+<div class="place-date"><div>Place: <span id="p_place">Ahmedabad, Gujarat</span></div><div>Date: <span id="p_date">10th September 2025</span></div></div>
+</div>
+<div class="right-col">
+<div class="sec-title">Education</div><div class="sec-line" style="width:80px"></div>
+<div id="p_edu"></div>
+<div class="sec-title" style="margin-top:28px">Personal Details</div><div class="sec-line" style="width:110px"></div>
+<div class="per-table">
+<div><b>Father's Name:</b><span id="p_father">Mr. Rajesh Patel</span></div>
+<div><b>Date of Birth:</b><span id="p_dob">15 March 2002</span></div>
+<div><b>Nationality:</b><span id="p_nation">Indian</span></div>
+<div><b>Gender:</b><span id="p_gender">Female</span></div>
+</div>
+<div class="sec-title" style="margin-top:28px">Languages</div><div class="sec-line" style="width:70px"></div>
+<ul class="lang-table" id="p_lang"></ul>
+<div class="signature"><div>Signature:</div><div id="p_sign" style="margin-top:4px">(PRIYA PATEL)</div></div>
+</div>
+</div>
+</div>
+<div class="footer-gold">ATS-Friendly • Clean • Professional Resume</div>
+</div>
+</div>
+</main>
+<script>
+let skills=["Communication & Interpersonal Skills","Microsoft Office (Word, Excel, PowerPoint)","Research & Data Analysis","Content Writing & Documentation","Time Management & Organization","Teamwork & Collaboration","Data Entry & Record Keeping"];
+let edus=[{t:"B.A. — Gujarat University",s:"Graduation | 2023 | 78.6%"},{t:"12th HSC — Gujarat Secondary and",s:"Higher Secondary Education Board",d:"Year 2020 | 78.0%"},{t:"10th SSC — Gujarat Secondary and",s:"Higher Secondary Education Board",d:"Year 2018 | 79.0%"}];
+let langs=[{l:"English",p:"Proficient"},{l:"Hindi",p:"Proficient"},{l:"Gujarati",p:"Native"}];
+let isPaid = localStorage.getItem('resumePaid_Priya') === 'true';
+
+function renderAll(){
+ let box=document.getElementById('skillBox');box.innerHTML='';skills.forEach((v,i)=>{box.innerHTML+=`<div class="item-row"><input value="${v.replace(/"/g,'&quot;')}" oninput="skills[${i}]=this.value;updateResume()"><button class="del" onclick="del('skill',${i})">❌</button></div>`;});
+ box=document.getElementById('eduBox');box.innerHTML='';edus.forEach((e,i)=>{box.innerHTML+=`<div style="border:1px solid #ddd;padding:6px;border-radius:6px;margin-bottom:5px"><div style="display:flex;justify-content:space-between"><b style="font-size:10px">Edu ${i+1}</b><button class="del" onclick="del('edu',${i})">❌</button></div><input placeholder="Title" value="${e.t}" oninput="edus[${i}].t=this.value;updateResume()" style="margin-top:3px"><input placeholder="Sub line 1" value="${e.s||''}" oninput="edus[${i}].s=this.value;updateResume()" style="margin-top:3px"><input placeholder="Sub line 2 / Year" value="${e.d||''}" oninput="edus[${i}].d=this.value;updateResume()" style="margin-top:3px"></div>`;});
+ box=document.getElementById('langBox');box.innerHTML='';langs.forEach((e,i)=>{box.innerHTML+=`<div class="item-row"><input value="${e.l}" placeholder="Language" oninput="langs[${i}].l=this.value;updateResume()"><input value="${e.p}" style="width:90px" placeholder="Level" oninput="langs[${i}].p=this.value;updateResume()"><button class="del" onclick="del('lang',${i})">❌</button></div>`;});
+}
+function addItem(t){if(t=='skill'){let v=prompt('Skill:');if(v){skills.push(v);renderAll();updateResume();}}else if(t=='edu'){edus.push({t:"New Degree — University",s:"Graduation | Year | %",d:""});renderAll();updateResume();}else if(t=='lang'){let l=prompt('Language:');if(l){langs.push({l:l,p:"Proficient"});renderAll();updateResume();}}}
+function removeItem(t){if(t=='skill'&&skills.length>1){skills.pop();renderAll();updateResume();}if(t=='edu'&&edus.length>1){edus.pop();renderAll();updateResume();}if(t=='lang'&&langs.length>1){langs.pop();renderAll();updateResume();}}
+function del(t,i){if(t=='skill'&&skills.length>1){skills.splice(i,1);renderAll();updateResume();}if(t=='edu'&&edus.length>1){edus.splice(i,1);renderAll();updateResume();}if(t=='lang'&&langs.length>1){langs.splice(i,1);renderAll();updateResume();}}
+function updateResume(){
+ document.getElementById('p_name').textContent=document.getElementById('f_name').value;
+ document.getElementById('p_title').textContent=document.getElementById('f_title').value;
+ document.getElementById('p_email').textContent=document.getElementById('f_email').value;
+ document.getElementById('p_mobile').textContent=document.getElementById('f_mobile').value;
+ document.getElementById('p_location').textContent=document.getElementById('f_location').value;
+ document.getElementById('p_summary').textContent=document.getElementById('f_summary').value;
+ document.getElementById('p_decl').textContent=document.getElementById('f_decl').value;
+ document.getElementById('p_place').textContent=document.getElementById('f_place').value;
+ document.getElementById('p_date').textContent=document.getElementById('f_date').value;
+ document.getElementById('p_sign').textContent=document.getElementById('f_sign').value;
+ document.getElementById('p_father').textContent=document.getElementById('f_father').value;
+ document.getElementById('p_dob').textContent=document.getElementById('f_dob').value;
+ document.getElementById('p_nation').textContent=document.getElementById('f_nation').value;
+ document.getElementById('p_gender').textContent=document.getElementById('f_gender').value;
+ let ul=document.getElementById('p_skill');ul.innerHTML='';skills.forEach(s=>{let li=document.createElement('li');li.textContent=s;ul.appendChild(li);});
+ let eduDiv=document.getElementById('p_edu');eduDiv.innerHTML='';edus.forEach(e=>{let d=document.createElement('div');d.className='edu-block';d.innerHTML=`<div class="edu-title">${e.t}</div>${e.s?`<div class="edu-sub">${e.s}</div>`:''}${e.d?`<div class="edu-sub">${e.d}</div>`:''}`;eduDiv.appendChild(d);});
+ let langUl=document.getElementById('p_lang');langUl.innerHTML='';langs.forEach(e=>{let li=document.createElement('li');li.innerHTML=`<span>• ${e.l}</span><span>${e.p}</span>`;langUl.appendChild(li);});
+ if(isPaid){document.getElementById('paidPopup').style.display='none'; document.getElementById('payBtn').innerHTML='✅ ₹20 Paid';}
+}
+
+// UPI + PAY LOGIC Rs.20
+function updateQR(){
+ let upi = document.getElementById('f_upi').value.trim();
+ let amt = document.getElementById('f_amount').value.trim() || '20';
+ document.getElementById('upiText').textContent = upi;
+ document.getElementById('amtText').textContent = amt;
+ document.getElementById('amtText2').textContent = amt;
+ let upiLink = `upi://pay?pa=${upi}&pn=PriyaPatelResume&am=${amt}&cu=INR&tn=Resume_Rs${amt}`;
+ let qrApi = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(upiLink)}`;
+ document.getElementById('qrImg').src = qrApi;
+}
+function openPaidPopup(){document.getElementById('paidPopup').style.display='flex'; updateQR();}
+function closePaidPopup(){document.getElementById('paidPopup').style.display='none';}
+function verifyAndDownload(){
+ let utr = document.getElementById('utrInput').value.trim();
+ if(!/^\d{12}$/.test(utr)){alert('❌ 12-digit UTR taka!');return;}
+ localStorage.setItem('resumePaid_Priya','true');
+ localStorage.setItem('lastUTR_Priya', utr);
+ isPaid=true;
+ document.getElementById('paidPopup').style.display='none';
+ document.getElementById('payBtn').innerHTML='✅ ₹20 Paid & Unlocked';
+ alert('✅ Payment Verified! UTR: '+utr+'\nDownload Unlock zala!');
+ saveFile();
+}
+function saveFile(){
+ if(!isPaid){openPaidPopup();return;}
+ let html=document.getElementById('resumePage').outerHTML;
+ let full=`<!DOCTYPE html><html><head><meta charset="UTF-8"><style>body{margin:0;background:#fff}#resumePage{width:210mm;min-height:297mm;background:#fdfcfa;margin:auto;display:flex;flex-direction:column}.resume-inner{flex:1}.top-section{padding:32px 32px 20px;display:flex;justify-content:space-between;border-top:2px solid #b38b3a;border-bottom:1.5px solid #b38b3a}.r-name{font-size:32pt;font-weight:900;text-transform:uppercase}.r-degree{font-size:13pt;font-weight:700;color:#b38b3a;margin-top:6px}.top-right{text-align:right;font-size:9pt;line-height:1.8}.main-two{display:flex;padding:28px 0 0}.left-col{width:50%;padding:0 28px;border-right:1.2px solid #d4c08a}.right-col{width:50%;padding:0 28px}.sec-title{font-size:13pt;font-weight:800;text-transform:uppercase}.sec-line{height:1.5px;background:#b38b3a;width:90px;margin-top:4px}.sec-text{font-size:8.5pt;line-height:1.6;margin-top:14px;text-align:justify}.skill-ul{margin-top:14px;list-style:none}.skill-ul li{font-size:8.8pt;margin-top:8px;padding-left:12px;position:relative}.skill-ul li::before{content:'•';color:#b38b3a;position:absolute;left:0;font-weight:900}.edu-block{margin-top:16px}.edu-title{font-size:10.5pt;font-weight:800}.edu-sub{font-size:8.8pt;margin-top:2px}.per-table{margin-top:14px;font-size:8.8pt;line-height:2}.lang-table{margin-top:14px;font-size:8.8pt;line-height:2.2;list-style:none}.lang-table li{display:flex;justify-content:space-between}.footer-gold{text-align:center;color:#b38b3a;font-size:8pt;padding:18px 0 14px}</style></head><body>${html}</body></html>`;
+ let blob=new Blob([full],{type:'text/html'});let a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='Priya_Patel_Resume_Rs20.html';a.click();
+}
+renderAll();updateResume();updateQR();
+if(isPaid) document.getElementById('paidPopup').style.display='none';
+</script>
+</body>
+</html>

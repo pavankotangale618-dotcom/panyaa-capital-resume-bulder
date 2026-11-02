@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FULL NAME - Paid Rs.20</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Inter,Arial,sans-serif}
+body{background:#1e2a3a}
+header{background:#fff;padding:10px 15px;display:flex;justify-content:space-between;align-items:center;border-bottom:4px solid #c9a86a;position:sticky;top:0;z-index:20}
+header h1{font-size:12px;font-weight:900;color:#1e2a3a}
+.btn{padding:8px 14px;border:none;border-radius:20px;font-weight:800;cursor:pointer;font-size:11px;border:2px solid}
+.save{background:#c9a86a;color:#fff;border-color:#c9a86a}
+.print{background:#fff;color:#333;border-color:#333}
+.pay{background:#ff6a00;color:#fff;border-color:#ff6a00}
+.add{background:#1e2a3a;color:#fff;border-color:#1e2a3a}
+.minus{background:#c53030;color:#fff;border-color:#c53030}
+main{display:grid;grid-template-columns:420px 1fr;min-height:100vh}
+.form-box{background:#fffaf0;padding:14px;max-height:100vh;overflow:auto;border-right:4px solid #c9a86a}
+.form-box h3{background:#1e2a3a;color:#c9a86a;padding:6px 12px;border-radius:20px;font-size:11px;margin:12px 0 6px;text-transform:uppercase}
+.form-box label{font-size:11px;font-weight:700;color:#333;display:block;margin-top:7px}
+.form-box input,.form-box textarea{width:100%;padding:8px;border:1.5px solid #c9a86a;border-radius:6px;margin-top:3px;font-size:12px}
+.royal-box{border:1.5px dashed #c9a86a;background:#fff;padding:9px;border-radius:8px;margin:6px 0}
+.item-row{display:flex;gap:5px;margin-top:5px}
+.item-row input{flex:1}
+.del{padding:0 8px;background:#c53030;color:#fff;border:none;border-radius:6px;cursor:pointer}
+.exp-item{border:1px solid #ddd;padding:8px;border-radius:6px;margin-bottom:6px;background:#fff}
+.preview-box{background:#666;padding:15px;overflow:auto;display:flex;justify-content:center;position:relative}
+#resumePage{width:210mm;min-height:297mm;background:#f5f5f7;margin:auto;display:flex;overflow:hidden;box-shadow:0 0 20px rgba(0,0,0,0.5)}
+.left-main{width:65%;background:#f5f5f7;padding:28px 28px 20px;color:#222}
+.right-bar{width:35%;background:linear-gradient(180deg,#1e2f4a 0%,#2a3f5f 50%,#6b7a93 100%);color:#fff;padding:20px 18px;position:relative;border-left:6px solid #c9a86a}
+.top-fullname{font-size:28pt;font-weight:900;color:#1e2a3a;letter-spacing:1px;line-height:1;text-transform:uppercase;font-family:'Times New Roman',serif}
+.top-protitle{font-size:8.5pt;letter-spacing:3px;color:#6b7a93;text-transform:uppercase;margin-top:6px;font-weight:600}
+.gold-line{height:4px;background:linear-gradient(90deg,#c9a86a,#e8d5a3);border-radius:2px;margin-top:12px;width:160px}
+.top-summary{font-size:7.5pt;color:#666;margin-top:12px;line-height:1.6}
+.sec-title{font-size:9pt;font-weight:800;letter-spacing:2.5px;color:#111;margin-top:28px;text-transform:uppercase}
+.sec-gold{height:3px;background:linear-gradient(90deg,#c9a86a,#e8d5a3);width:70px;margin-top:6px;border-radius:2px}
+.sec-content{font-size:7.5pt;color:#444;line-height:1.6;margin-top:10px}
+.job-block{margin-top:16px}
+.job-title{font-size:10pt;font-weight:800;color:#111}
+.job-meta{display:flex;justify-content:space-between;font-size:7pt;color:#666;margin-top:2px}
+.job-bullets{margin-left:10px;margin-top:6px}
+.job-bullets li{margin-top:3px;font-size:7.5pt}
+.divider{height:1px;background:#ddd;margin-top:18px}
+.right-logo{width:72px;height:72px;border:2px solid rgba(255,255,255,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18pt;font-weight:700;color:#fff;margin:10px auto 0;background:rgba(255,255,255,0.08)}
+.r-sec{margin-top:28px}
+.r-sec-title{font-size:8pt;font-weight:700;letter-spacing:2.5px;color:#fff;text-transform:uppercase}
+.r-contact{margin-top:12px;font-size:7pt;line-height:1.8;color:#d0d8e8}
+.r-skill-item{margin-top:14px}
+.r-skill-name{font-size:7.5pt;color:#e8eef8}
+.r-skill-bar{height:5px;background:rgba(255,255,255,0.2);border-radius:3px;margin-top:4px;overflow:hidden}
+.r-skill-fill{height:100%;background:linear-gradient(90deg,#c9a86a,#e8d5a3);border-radius:3px}
+.r-tools{margin-top:10px;font-size:7pt;color:#cbd5e8;line-height:2}
+.r-lang{margin-top:8px;font-size:7pt;color:#cbd5e8}
+
+/* PAID DOWNLOAD - Rs.20 */
+.paid-overlay{position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.85);display:flex;align-items:center;justify-content:center;z-index:50;padding:15px}
+.paid-card{background:#fdf6ee;width:360px;max-width:95%;border-radius:15px;padding:18px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,0.5);border:2px solid #fff}
+.paid-badge{background:#111;color:#fff;padding:6px 14px;border-radius:20px;font-size:12px;font-weight:800;display:inline-block;margin-bottom:10px}
+.paid-card h2{font-size:18px;margin:5px 0}
+.paid-card h3{font-size:13px;color:#333;font-weight:600}
+.qr-box{background:#fff;padding:10px;border-radius:12px;margin:12px auto;width:220px;border:2px solid #111}
+.qr-box img{width:100%;display:block}
+.upi-info{border:1.5px dashed #999;border-radius:8px;padding:8px;font-size:11px;margin:10px 0;background:#fff8f0}
+.utr-input{width:100%;padding:12px;border:2px solid #111;border-radius:10px;font-size:14px;text-align:center;font-weight:700;margin-top:10px}
+.btn-row{display:flex;gap:10px;margin-top:12px}
+.btn-cancel{flex:1;padding:12px;border:2px solid #111;border-radius:25px;background:#fff;font-weight:800;cursor:pointer}
+.btn-verify{flex:1;padding:12px;border:none;border-radius:25px;background:#16a34a;color:#fff;font-weight:800;cursor:pointer}
+.utr-hint{font-size:9px;color:#666;margin-top:6px;text-align:left}
+
+@media print{header,.form-box,.paid-overlay{display:none!important}main{display:block}.preview-box{padding:0;background:#fff}#resumePage{box-shadow:none}}
+</style>
+</head>
+<body>
+<header>
+<h1>FULL NAME - Same To Same</h1>
+<div style="display:flex;gap:6px">
+<button class="btn pay" id="payBtn" onclick="openPaidPopup()">💳 Pay ₹20 to Download</button>
+<button class="btn save" onclick="saveFile()">💾 Save</button>
+<button class="btn print" onclick="window.print()">🖨️ Print</button>
+</div>
+</header>
+<main>
+<div class="form-box">
+<h3>💳 UPI - Rs.20</h3>
+<div class="royal-box" style="background:#fff3e0;border-color:#ff6a00">
+<label>UPI ID</label><input id="f_upi" value="918446059509@wahdfcbank" oninput="updateQR()">
+<label>Amount</label><input id="f_amount" value="20" type="number" oninput="updateQR()">
+</div>
+<h3>👤 Top</h3>
+<div class="royal-box">
+<label>Full Name</label><input id="f_name" value="FULL NAME" oninput="updateResume()">
+<label>Professional Title</label><input id="f_title" value="PROFESSIONAL TITLE" oninput="updateResume()">
+<label>Top Summary</label><textarea id="f_topSummary" rows="2" oninput="updateResume()">A refined classic profile statement can be placed here to present career focus, professional strengths, and a concise summary of value delivered across roles.</textarea>
+<label>IN Logo</label><input id="f_initials" value="IN" oninput="updateResume()">
+</div>
+<h3>👤 Profile</h3>
+<textarea id="f_profile" rows="3" oninput="updateResume()">Experienced professional with a structured approach to planning, communication, service quality, and continuous improvement. Skilled at organizing priorities, supporting decisions with clear information, and delivering dependable results.</textarea>
+<h3>💼 Experience</h3>
+<div class="royal-box" id="expFormBox"></div>
+<div style="display:flex;gap:6px"><button class="btn add" style="flex:1" onclick="addExp()">➕ ADD Exp</button><button class="btn minus" style="flex:1" onclick="removeExp()">➖ MINUS</button></div>
+<h3>🎓 Education</h3>
+<div class="royal-box">
+<label>Degree</label><input id="f_degree" value="Degree or Certification" oninput="updateResume()">
+<label>Institution</label><input id="f_inst" value="Institution Name - Field of Study" oninput="updateResume()">
+<label>Date</label><input id="f_eduDate" value="Date Range" oninput="updateResume()">
+<label>Details</label><input id="f_eduDetail" value="Relevant coursework, honors, professional training, or development details." oninput="updateResume()">
+</div>
+<h3>📞 Right - Contact</h3>
+<div class="royal-box">
+<label>Location</label><input id="f_loc" value="Location Placeholder" oninput="updateResume()">
+<label>Availability</label><input id="f_avail" value="Availability Placeholder" oninput="updateResume()">
+<label>Reference</label><input id="f_ref" value="Reference On Request" oninput="updateResume()">
+</div>
+<h3>⭐ Key Skills %</h3>
+<div class="royal-box" id="skillFormBox"></div>
+<div style="display:flex;gap:6px"><button class="btn add" style="flex:1" onclick="addSkill()">➕ ADD</button><button class="btn minus" style="flex:1" onclick="removeSkill()">➖ MINUS</button></div>
+<h3>🛠️ Tools</h3>
+<div class="royal-box" id="toolFormBox"></div>
+<div style="display:flex;gap:6px"><button class="btn add" style="flex:1" onclick="addTool()">➕ ADD</button><button class="btn minus" style="flex:1" onclick="removeTool()">➖ MINUS</button></div>
+<h3>🌐 Languages</h3>
+<div class="royal-box" id="langFormBox"></div>
+<div style="display:flex;gap:6px"><button class="btn add" style="flex:1" onclick="addLang()">➕ ADD</button><button class="btn minus" style="flex:1" onclick="removeLang()">➖ MINUS</button></div>
+</div>
+
+<div class="preview-box">
+
+<div id="paidPopup" class="paid-overlay">
+  <div class="paid-card">
+    <div class="paid-badge">🔒 PAID DOWNLOAD</div>
+    <h2>Pay Rs.<span id="amtText">20</span> to Download</h2>
+    <h3>FULL NAME</h3>
+    <div class="qr-box"><img id="qrImg" src="" alt="UPI QR"></div>
+    <div class="upi-info">UPI ID: <b id="upiText">918446059509@wahdfcbank</b><br>Amount: <b>₹<span id="amtText2">20</span> Only</b></div>
+    <input id="utrInput" class="utr-input" placeholder="Enter 12-digit UTR No." maxlength="12" inputmode="numeric">
+    <div class="utr-hint">Pay zalyavar GPay/PhonePe > Transaction > Details madhe 12 anki UTR bhetel.</div>
+    <div class="btn-row">
+      <button class="btn-cancel" onclick="closePaidPopup()">Cancel</button>
+      <button class="btn-verify" onclick="verifyAndDownload()">✅ Verify &<br>Download</button>
+    </div>
+  </div>
+</div>
+
+<div id="resumePage">
+<div class="left-main">
+<div class="top-fullname" id="p_name">FULL NAME</div>
+<div class="top-protitle" id="p_title">PROFESSIONAL TITLE</div>
+<div class="gold-line"></div>
+<div class="top-summary" id="p_topSummary"></div>
+<div class="sec-title">Profile</div><div class="sec-gold"></div>
+<div class="sec-content" id="p_profile"></div>
+<div class="sec-title">Professional Experience</div><div class="sec-gold" style="width:130px"></div>
+<div id="p_expList"></div>
+<div class="sec-title">Education</div><div class="sec-gold"></div>
+<div class="edu-block"><div class="job-title" id="p_degree"></div><div class="job-meta"><span id="p_inst"></span><span id="p_eduDate"></span></div><div class="sec-content" id="p_eduDetail"></div></div>
+</div>
+<div class="right-bar">
+<div class="right-logo" id="p_initials">IN</div>
+<div class="r-sec"><div class="r-sec-title">Contact</div><div class="r-contact"><div id="p_loc"></div><div id="p_avail"></div><div id="p_ref"></div></div></div>
+<div class="r-sec"><div class="r-sec-title">Key Skills</div><div id="p_skillList"></div></div>
+<div class="r-sec"><div class="r-sec-title">Tools</div><div class="r-tools" id="p_toolList"></div></div>
+<div class="r-sec"><div class="r-sec-title">Languages</div><div id="p_langList"></div></div>
+</div>
+</div>
+</div>
+</main>
+<script>
+let exps=[{title:"Position Title",company:"Company Name - City Name",date:"Date Range",points:["Managed primary responsibilities, coordinated priorities, and supported quality outcomes through organized processes and consistent communication.","Improved documentation, reporting standards, and cross-functional coordination."]},{title:"Position Title",company:"Company Name - City Name",date:"Date Range",points:["Delivered administrative, operational, or client-focused support with accuracy.","Tracked progress, prepared updates, and maintained reliable records.","Collaborated with teams to resolve issues and strengthen service standards."]}];
+let skills=[{name:"Planning",pct:70},{name:"Leadership",pct:85},{name:"Reporting",pct:65},{name:"Communication",pct:80}];
+let tools=["Office Suite","Reporting Tool","Planning Platform","Workflow System"];
+let langs=["Language One","Language Two"];
+let isPaid = localStorage.getItem('resumePaid_FullName') === 'true';
+
+function renderExpForm(){let box=document.getElementById('expFormBox');box.innerHTML='';exps.forEach((e,i)=>{box.innerHTML+=`<div class="exp-item"><div style="display:flex;justify-content:space-between"><b style="font-size:11px">Exp ${i+1}</b><button class="del" onclick="delExp(${i})">❌</button></div><input placeholder="Position Title" value="${e.title}" oninput="exps[${i}].title=this.value;updateResume()"><div style="display:flex;gap:5px;margin-top:4px"><input placeholder="Company - City" value="${e.company}" oninput="exps[${i}].company=this.value;updateResume()"><input placeholder="Date" value="${e.date}" oninput="exps[${i}].date=this.value;updateResume()"></div><textarea placeholder="Points - Enter ne alag" rows="3" oninput="exps[${i}].points=this.value.split('\\n');updateResume()" style="margin-top:4px">${e.points.join('\n')}</textarea></div>`;});}
+function renderSkillsForm(){let box=document.getElementById('skillFormBox');box.innerHTML='';skills.forEach((s,i)=>{box.innerHTML+=`<div class="item-row"><input value="${s.name}" oninput="skills[${i}].name=this.value;updateResume()"><input type="number" value="${s.pct}" style="width:70px" oninput="skills[${i}].pct=this.value;updateResume()"><button class="del" onclick="delSkill(${i})">❌</button></div>`;});}
+function renderToolsForm(){let box=document.getElementById('toolFormBox');box.innerHTML='';tools.forEach((t,i)=>{box.innerHTML+=`<div class="item-row"><input value="${t}" oninput="tools[${i}]=this.value;updateResume()"><button class="del" onclick="delTool(${i})">❌</button></div>`;});}
+function renderLangsForm(){let box=document.getElementById('langFormBox');box.innerHTML='';langs.forEach((l,i)=>{box.innerHTML+=`<div class="item-row"><input value="${l}" oninput="langs[${i}]=this.value;updateResume()"><button class="del" onclick="delLang(${i})">❌</button></div>`;});}
+function addExp(){exps.push({title:"New Position",company:"Company - City",date:"Date Range",points:["New point"]});renderExpForm();updateResume();}
+function removeExp(){if(exps.length>1){exps.pop();renderExpForm();updateResume();}}
+function delExp(i){if(exps.length>1){exps.splice(i,1);renderExpForm();updateResume();}}
+function addSkill(){let n=prompt('Skill name:');if(n===null)return;let p=prompt('Percentage:','75');skills.push({name:n||'New Skill',pct:parseInt(p)||75});renderSkillsForm();updateResume();}
+function removeSkill(){if(skills.length>1){skills.pop();renderSkillsForm();updateResume();}}
+function delSkill(i){if(skills.length>1){skills.splice(i,1);renderSkillsForm();updateResume();}}
+function addTool(){let n=prompt('Tool:');if(!n)return;tools.push(n);renderToolsForm();updateResume();}
+function removeTool(){if(tools.length>1){tools.pop();renderToolsForm();updateResume();}}
+function delTool(i){if(tools.length>1){tools.splice(i,1);renderToolsForm();updateResume();}}
+function addLang(){let n=prompt('Language:');if(!n)return;langs.push(n);renderLangsForm();updateResume();}
+function removeLang(){if(langs.length>1){langs.pop();renderLangsForm();updateResume();}}
+function delLang(i){if(langs.length>1){langs.splice(i,1);renderLangsForm();updateResume();}}
+function updateResume(){
+ document.getElementById('p_name').textContent=document.getElementById('f_name').value;
+ document.getElementById('p_title').textContent=document.getElementById('f_title').value;
+ document.getElementById('p_topSummary').textContent=document.getElementById('f_topSummary').value;
+ document.getElementById('p_profile').textContent=document.getElementById('f_profile').value;
+ document.getElementById('p_initials').textContent=document.getElementById('f_initials').value;
+ document.getElementById('p_degree').textContent=document.getElementById('f_degree').value;
+ document.getElementById('p_inst').textContent=document.getElementById('f_inst').value;
+ document.getElementById('p_eduDate').textContent=document.getElementById('f_eduDate').value;
+ document.getElementById('p_eduDetail').textContent=document.getElementById('f_eduDetail').value;
+ document.getElementById('p_loc').textContent=document.getElementById('f_loc').value;
+ document.getElementById('p_avail').textContent=document.getElementById('f_avail').value;
+ document.getElementById('p_ref').textContent=document.getElementById('f_ref').value;
+ let expList=document.getElementById('p_expList');expList.innerHTML='';exps.forEach((e,idx)=>{let div=document.createElement('div');div.className='job-block';let bullets=e.points.map(p=>`<li>${p}</li>`).join('');div.innerHTML=`<div class="job-title">${e.title}</div><div class="job-meta"><span>${e.company}</span><span>${e.date}</span></div><ul class="job-bullets">${bullets}</ul>${idx<exps.length-1?'<div class="divider"></div>':''}`;expList.appendChild(div);});
+ let sList=document.getElementById('p_skillList');sList.innerHTML='';skills.forEach(s=>{let d=document.createElement('div');d.className='r-skill-item';d.innerHTML=`<div class="r-skill-name">${s.name}</div><div class="r-skill-bar"><div class="r-skill-fill" style="width:${s.pct}%"></div></div>`;sList.appendChild(d);});
+ document.getElementById('p_toolList').innerHTML=tools.map(t=>`<div>${t}</div>`).join('');
+ document.getElementById('p_langList').innerHTML=langs.map(l=>`<div class="r-lang">${l}</div>`).join('');
+ if(isPaid){document.getElementById('paidPopup').style.display='none'; document.getElementById('payBtn').innerHTML='✅ ₹20 Paid';}
+}
+
+// PAY - Rs.20
+function updateQR(){
+ let upi = document.getElementById('f_upi').value.trim();
+ let amt = document.getElementById('f_amount').value.trim() || '20';
+ document.getElementById('upiText').textContent = upi;
+ document.getElementById('amtText').textContent = amt;
+ document.getElementById('amtText2').textContent = amt;
+ let upiLink = `upi://pay?pa=${upi}&pn=Resume&am=${amt}&cu=INR&tn=Resume_Rs${amt}`;
+ let qrApi = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(upiLink)}`;
+ document.getElementById('qrImg').src = qrApi;
+}
+function openPaidPopup(){document.getElementById('paidPopup').style.display='flex'; updateQR();}
+function closePaidPopup(){document.getElementById('paidPopup').style.display='none';}
+function verifyAndDownload(){
+ let utr = document.getElementById('utrInput').value.trim();
+ if(!/^\d{12}$/.test(utr)){alert('❌ 12-digit UTR taka!');return;}
+ localStorage.setItem('resumePaid_FullName','true');
+ isPaid=true;
+ document.getElementById('paidPopup').style.display='none';
+ document.getElementById('payBtn').innerHTML='✅ ₹20 Paid & Unlocked';
+ alert('✅ Payment Verified! UTR: '+utr);
+ saveFile();
+}
+function saveFile(){
+ if(!isPaid){openPaidPopup();return;}
+ let html=document.getElementById('resumePage').outerHTML;
+ let full=`<!DOCTYPE html><html><head><meta charset="UTF-8"><style>body{margin:0} #resumePage{width:210mm;min-height:297mm;display:flex} .left-main{width:65%;background:#f5f5f7;padding:28px} .right-bar{width:35%;background:linear-gradient(180deg,#1e2f4a,#6b7a93);color:#fff;padding:20px 18px;border-left:6px solid #c9a86a}</style></head><body>${html}</body></html>`;
+ let blob=new Blob([full],{type:'text/html'});let a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='Full_Name_Resume_Rs20.html';a.click();
+}
+renderExpForm();renderSkillsForm();renderToolsForm();renderLangsForm();updateResume();updateQR();
+if(isPaid) document.getElementById('paidPopup').style.display='none';
+</script>
+</body>
+</html>
