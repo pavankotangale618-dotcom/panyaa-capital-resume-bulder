@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PANYAA CAPITAL - Amravati</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,sans-serif;}
+body{background:#fff;color:#000;}
+header{display:flex;justify-content:space-between;padding:20px 30px;border-bottom:2px solid #000;position:sticky;top:0;background:#fff;z-index:10;}
+.logo{font-weight:900;font-size:26px;line-height:0.8;}
+nav button{margin-left:8px;background:#fff;border:2px solid #000;padding:8px 16px;border-radius:6px;font-weight:900;font-size:11px;cursor:pointer;}
+nav button.active{background:#000;color:#fff;}
+.hero{text-align:center;padding:60px 20px;}
+.hero h1{font-size:56px;font-weight:900;letter-spacing:-2px;}
+.main-btns{margin-top:25px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.main-btns button{padding:12px 28px;border:2px solid #000;border-radius:8px;font-weight:900;cursor:pointer;}
+.btn-black{background:#000;color:#fff;} .btn-white{background:#fff;color:#000;}
+.content-box{display:none;max-width:800px;margin:30px auto;padding:30px;border:2.5px solid #000;border-radius:16px;position:relative;background:#fafafa;animation:openAnim 0.35s ease;}
+.content-box.show{display:block;}
+@keyframes openAnim{from{opacity:0;transform:translateY(-30px) scale(0.95)}to{opacity:1;transform:translateY(0) scale(1)}}
+.close-btn{position:absolute;top:15px;right:20px;font-size:28px;font-weight:900;cursor:pointer;background:#000;color:#fff;width:35px;height:35px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
+.content-box h2{font-size:28px;font-weight:900;margin-bottom:20px;}
+.content-box p{font-size:14px;line-height:1.7;margin-bottom:12px;}
+.contact-card{text-align:center;background:#000;color:#fff;padding:30px;border-radius:16px;margin-top:20px;}
+.qr{width:230px;border-radius:12px;margin:15px auto;display:block;background:#fff;padding:10px;}
+.upi{background:#fff;color:#000;padding:10px;border-radius:8px;font-weight:700;font-size:13px;margin:15px 0;word-break:break-all;}
+.wa-btn{background:#fff;color:#000;padding:12px 35px;border-radius:25px;text-decoration:none;font-weight:900;display:inline-block;}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;}
+.card{border:1.5px solid #000;border-radius:10px;padding:22px;}
+.card h4{font-size:20px;font-weight:900;line-height:1.1;margin-bottom:8px;}
+.card .year{font-size:13px;font-weight:600;margin-bottom:10px;}
+.card p{font-size:12.5px;line-height:1.4;}
+.skills{margin-top:15px;font-size:11px;font-weight:800;}
+footer{background:#f3f3f3;text-align:center;padding:30px 20px;margin-top:20px;}
+footer h2{font-size:22px;font-weight:900;}
+footer .mail{font-weight:900;font-size:14px;margin-top:8px;}
+</style>
+</head>
+<body>
+
+<header>
+<div class="logo">PANYAA<br><P style="color: gold">CAPITAL</P></div>
+<nav>
+<button id="btn-about" onclick="openBox('aboutBox')">ABOUT</button>
+<button id="btn-work" onclick="openBox('workBox')">WORK</button>
+<button id="btn-project" onclick="openBox('projectBox')">PROJECTS</button>
+<button id="btn-contact" onclick="openBox('contactBox')">CONTACT</button>
+</nav>
+</header>
+<center><img src="qur.jpeg" style="height: 400px;width: auto;"></center>
+<div class="hero">
+<h1 style="font-weight:900; letter-spacing:-1px;">
+  PANYAA <span style="color:gold;">CAPITAL</span>
+</h1>
+<!-- TEMPLATE BANNER - ATTRACTIVE -->
+<div style="max-width:1100px;margin:25px auto;padding:0 20px;display:grid;grid-template-columns:1fr 1fr;gap:18px;">
+
+<!-- FREE -->
+<div style="border:2.5px solid #000;border-radius:16px;padding:22px;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,0.1);position:relative;">
+<div style="position:absolute;top:10px;right:10px;background:#000;color:#fff;padding:4px 10px;border-radius:20px;font-size:9px;font-weight:900;">100% FREE</div>
+<div style="font-size:24px">📄✨</div>
+<h3 style="font-size:22px;font-weight:900;margin:8px 0;">FREE RESUME<br>STUDIO</h3>
+<p style="font-size:12px;color:#666;margin-bottom:12px;">50+ A4 Templates | No Watermark | Instant Download</p>
+<a href="offer10.html" style="background:#000;color:#fff;padding:9px 20px;border-radius:25px;font-weight:900;font-size:12px;text-decoration:none;display:inline-block;">EXPLORE FREE →</a>
+</div>
+
+<!-- PREMIUM ₹20 -->
+<div style="border:2.5px solid gold;border-radius:16px;padding:22px;background:#000;color:#fff;box-shadow:0 6px 18px rgba(0,0,0,0.2);position:relative;">
+<div style="position:absolute;top:10px;right:10px;background:gold;color:#000;padding:4px 10px;border-radius:20px;font-size:9px;font-weight:900;animation:blink 1.2s infinite;">🔥 HOT</div>
+<div style="font-size:24px">👑💎</div>
+<h3 style="font-size:22px;font-weight:900;margin:8px 0;">ROYAL <span style="color:gold;">COLLECTION</span><br>JUST ₹20</h3>
+<p style="font-size:12px;color:#aaa;margin-bottom:12px;"><span style="text-decoration:line-through;color:#666">₹199</span> <span style="color:gold;font-weight:900;font-size:16px">₹20 ONLY</span> | 6 Premium Templates</p>
+<a href="temp.html" style="background:gold;color:#000;padding:9px 20px;border-radius:25px;font-weight:900;font-size:12px;text-decoration:none;display:inline-block;">UNLOCK @ ₹20 🔓</a>
+</div>
+</div>
+
+<style>@keyframes blink{0%,100%{opacity:1}50%{opacity:0.6}}</style>
+<p><span style="color: #290303;font-size: 20px;">Amravati,Maharashtra</span> |<span style="color: rgb(7, 7, 94); font-size: 40px;"> Your Growth,</span> <b>Our</b> <span style="color: #888; font-size: 29px;">Capital</span></p>
+
+<div class="main-btns">
+<a href="offer10.html"><button class="btn-black" >FREE RESUME TEMPLATES →</button></a>
+<a href="temp.html"><button class="btn-white" > 💳 ₹20 TEMPLATE SHOP <P style="color: rgb(17, 6, 109);font-style: initial;"> - Buy Now→</P></button></a>
+<a href="myself.html"><button class="btn-black" >CO-FOUNDER</button></a>
+</div>
+<br>
+<br>
+<br>
+<section class="work">
+<h3>WORK EXPERIENCE</h3>
+<div class="cards">
+<div class="card">
+<h4>PARTNER,<br>PANYAA CAPITAL</h4>
+<div class="year">2019 — 20</div>
+<p>Led investments in AI, infra, and B2B SaaS. Worked alongside founders on GTM, hiring, and strategy from seed to Series A.</p>
+</div>
+<div class="card">
+<h4>HEAD OF PRODUCT,<br>NIGHTSHIFT</h4>
+<div class="year">2020 — 2022</div>
+<p>Scaled product team from 3 to 15. Launched core platform driving 3x user growth and $4M ARR.</p>
+</div>
+<div class="card">
+<h4>FOUNDER, LATHE</h4>
+<div class="year">2017 — 2020</div>
+<p>Founded and built B2B operations tool. Bootstrapped to $1M ARR before successful acquisition.</p>
+<div class="skills">SKILLS<br>PRODUCT · GTM · FUNDRAISING · OPERATIONS · ANALYTICS · ZERO→ONE · B2B SAAS · AI</div>
+</div>
+</div>
+</section>
+
+<footer>
+<h2>READY TO BUILD TOGETHER?</h2>
+<p>Open to advisory, operating, and early-stage partnerships.</p>
+<div class="mail">LET'S TALK — 💬+91 8446059509</div>
+</div>
+
+<!-- ABOUT BOX -->
+<div id="aboutBox" class="content-box">
+<span class="close-btn" onclick="closeBox('aboutBox')">×</span>
+<h2>ABOUT US</h2>
+<p><b>PANYAA CAPITAL</b> is a builder-led venture and growth studio from <b>Amravati, Maharashtra.</b></p>
+<p>We partner with early-stage founders to build, launch, and scale companies from 0 to 1. Core focus: <b>AI + B2B SaaS</b>.</p>
+<p><b>What we do:</b> Build products, Grow via GTM, Invest Seed to Series A.</p>
+<p><b>Philosophy:</b> Your Growth, Our Capital.</p>
+</div>
+
+<!-- WORK BOX -->
+<div id="workBox" class="content-box">
+<span class="close-btn" onclick="closeBox('workBox')">×</span>
+<h2>WORK EXPERIENCE</h2>
+<p><b>1. FOUNDER, PANYAA CAPITAL RESUME BUILDER</b><br>2024-Present | Amravati<br>1000+ lokanna free resume banvun dile. Website + WhatsApp channel manage karto.</p>
+<p><b>2. PARTNER, PANYAA CAPITAL</b><br>2026-27<br>AI, B2B SaaS madhe investment, GTM strategy.</p>
+<p><b>3. FINANCE & GROWTH CONSULTANT</b><br>2023-Present<br>Small business la finance growth tips - Amravati.</p>
+</div>
+
+<!-- PROJECT BOX -->
+<div id="projectBox" class="content-box">
+<span class="close-btn" onclick="closeBox('projectBox')">×</span>
+<h2>PROJECTS</h2>
+<p><b>1. Resume Builder Website</b><br>Live 2024 | 50+ templates, free job/bio-data builder. HTML, Canva, SEO.</p>
+<p><b>2. WhatsApp Resume Channel</b><br>Social Growth | Daily 3 free designs, 10K family target from Amravati.</p>
+<p><b>3. Royal DP & Poster Maker</b><br>Design | 100+ royal blue + gold business posters.</p>
+</div>
+
+<!-- CONTACT BOX - VEGRA PAGE SARKHA PAN INDEX MADHECH -->
+<div id="contactBox" class="content-box" style="background:#000;border-color:#000;">
+<span class="close-btn" onclick="closeBox('contactBox')" style="background:#fff;color:#000;">×</span>
+<h2 style="color:#fff;">CONTACT US</h2>
+<div class="contact-card" style="border:2px solid #fff;">
+<h3 style="font-size:22px;font-weight:900;">PAWAN SIDDHARTHA KOTA</h3>
+<p style="color:#ccc;margin:8px 0;">📍 Amravati, Maharashtra</p>
+<img src="upi.jpeg" class="qr">
+<div class="upi">UPI ID: 918446059509@wahdfcbank</div>
+<a class="wa-btn" href="https://wa.me/+91 8446059509">WhatsApp Contact</a>
+<p style="font-size:11px;color:#888;margin-top:15px;">Scan to pay with any UPI app</p>
+</div>
+</div>
+
+<script>
+let currentOpen = null;
+function openBox(id){
+ if(currentOpen === id){closeBox(id); return;}
+ document.querySelectorAll('.content-box').forEach(b=>b.classList.remove('show'));
+ document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+ document.getElementById(id).classList.add('show');
+ document.getElementById('btn-'+id.replace('Box','')).classList.add('active');
+ currentOpen = id;
+ document.getElementById(id).scrollIntoView({behavior:'smooth', block:'center'});
+}
+function closeBox(id){
+ document.getElementById(id).classList.remove('show');
+ document.getElementById('btn-'+id.replace('Box','')).classList.remove('active');
+ currentOpen = null;
+}
+</script>
+
+</body>
+</html>
