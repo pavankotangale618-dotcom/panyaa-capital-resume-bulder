@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>PANYAA CAPITAL - Templates ₹20 | Amravati</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
+body{background:#f5f5f5;color:#111}
+header{display:flex;justify-content:space-between;align-items:center;padding:15px 30px;background:#000;color:#fff;position:sticky;top:0;z-index:20;border-bottom:2.5px solid gold}
+.logo{font-weight:900;font-size:22px;line-height:0.9;letter-spacing:-1px}
+.logo span{color:gold}
+nav{display:flex;gap:8px;flex-wrap:wrap}
+nav button{padding:7px 16px;border-radius:20px;border:1.5px solid gold;background:#111;color:gold;font-weight:800;cursor:pointer;font-size:11px}
+nav button:hover, nav button.active{background:gold;color:#000}
+#div1{
+    height:60px;width:100%;
+    background:#000;
+    display:flex;
+    align-items:center;
+    padding:0 20px;
+    gap:15px;
+    border-bottom:2px solid gold;
+}
+#bu1{
+    height:36px;width:120px;
+    border-radius:20px; 
+    background:gold;
+    border:2px solid gold;
+    font-weight:900;
+    cursor:pointer;
+    color:#000;
+}
+#bu1:hover{background:#fff;color:#000;border-color:#fff}
+#div1 h2{
+    color:gold;
+    font-size:14px;
+    flex:1;
+    text-align:center;
+    letter-spacing:0.5px;
+    font-weight:900;
+}
+.template-section{
+    padding:25px 20px;
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:22px;
+    max-width:1150px;
+    margin:auto;
+}
+.box{
+    height:auto;
+    width:100%;
+    background:#fff;
+    border:2.5px solid #000;
+    border-radius:16px;
+    overflow:hidden;
+    text-align:center;
+    padding-bottom:12px;
+    box-shadow:0 6px 15px rgba(0,0,0,0.15);
+    transition:transform 0.2s;
+}
+.box:hover{transform:translateY(-5px);border-color:gold;box-shadow:0 10px 25px rgba(0,0,0,0.25)}
+.box img{
+    height:380px;
+    width:100%;
+    object-fit:cover;
+    display:block;
+    border-bottom:2.5px solid #000;
+}
+.box a{text-decoration:none;}
+.box button{
+    margin-top:12px;
+    padding:10px 24px;
+    background:#000;
+    color:gold;
+    border:2px solid gold;
+    border-radius:25px;
+    font-weight:900;
+    cursor:pointer;
+    font-size:13px;
+}
+.box button:hover{background:gold;color:#000}
+.content-box{display:none;max-width:900px;margin:20px auto;padding:25px;border:2.5px solid #000;border-radius:16px;background:#fff;position:relative;animation:openAnim 0.3s}
+.content-box.show{display:block}
+@keyframes openAnim{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+.close-btn{position:absolute;top:12px;right:16px;font-size:26px;font-weight:900;cursor:pointer;background:#000;color:#fff;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+@media(max-width:768px){
+    .template-section{grid-template-columns:1fr 1fr;gap:15px}
+    .box img{height:280px}
+    #div1 h2{font-size:11px}
+    header{padding:12px 15px}
+    .logo{font-size:18px}
+}
+@media(max-width:480px){
+    .template-section{grid-template-columns:1fr}
+    .box img{height:400px}
+}
+</style>
+</head>
+<body>
+
+<header>
+<div class="logo">PANYAA<br><span>CAPITAL</span></div>
+<nav>
+<button onclick="openBox('aboutBox')">ABOUT</button>
+<button onclick="openBox('workBox')">WORK</button>
+<button onclick="openBox('contactBox')">CONTACT</button>
+<a href="index.html"><button>🏠 HOME</button></a>
+</nav>
+</header>
+
+<div id="div1">
+<a href="index.html"><button id="bu1">🏠 HOME</button></a>
+<h2>🔥 CHOOSE RESUME TEMPLATE - BUY NOW JUST ONLY ₹20..!! | PANYAA CAPITAL</h2>
+</div>
+
+<div id="aboutBox" class="content-box">
+<span class="close-btn" onclick="closeBox('aboutBox')">×</span>
+<h2>ABOUT US</h2>
+<p><b>PANYAA CAPITAL</b> - Amravati. Free Resume Builder + Premium Templates ₹20.</p>
+<p>Marathi porga resume banavto, English madhe objective - Bhava, nokri lagli ki board lavto!</p>
+</div>
+
+<div id="workBox" class="content-box">
+<span class="close-btn" onclick="closeBox('workBox')">×</span>
+<h2>WORK</h2>
+<p><b>Founder - Resume Builder:</b> 1000+ resume banvle. 6 premium templates ₹20 la.</p>
+<p><b>Mission:</b> Amravati cha pratyek porga nokri lagla pahije!</p>
+</div>
+
+<div id="contactBox" class="content-box" style="background:#000;color:#fff;border-color:gold;text-align:center;">
+<span class="close-btn" onclick="closeBox('contactBox')" style="background:#fff;color:#000;">×</span>
+<h2 style="color:gold;">CONTACT US</h2>
+<h3>PAWAN SIDDHARTHA KOTA</h3>
+<p>📍 Amravati, Maharashtra</p>
+<img src="qr.png" style="width:180px;border-radius:12px;margin:15px auto;display:block;background:#fff;padding:8px;">
+<div style="background:#fff;color:#000;padding:8px;border-radius:8px;font-weight:700;font-size:11px;word-break:break-all;">UPI: 918446059509@wahdfcbank</div>
+<a href="https://wa.me/91918446059509" style="background:gold;color:#000;padding:10px 25px;border-radius:25px;text-decoration:none;font-weight:900;display:inline-block;margin-top:12px;">WhatsApp - ₹20 Payment</a>
+</div>
+
+<!-- TEMPLATE BOXES -->
+<div class="template-section">
+
+<div class="box" id="te1">
+<a href="temp1.html"><img src="TEMP1.jpeg" alt="Template 1"></a>
+<a href="temp1.html"><button>Template 1 - BUY ₹20</button></a>
+</div>
+
+<div class="box" id="te2">
+<a href="temp2.html"><img src="TEMP2.jpeg" alt="Template 2"></a>
+<a href="temp2.html"><button>Template 2 - BUY ₹20</button></a>
+</div>
+
+<div class="box" id="te3">
+<a href="temp3.html"><img src="TEMP3.jpeg" alt="Template 3"></a>
+<a href="temp3.html"><button>Template 3 - BUY ₹20</button></a>
+</div>
+
+<div class="box" id="te4">
+<a href="temp4.html"><img src="TEMP4.jpeg" alt="Template 4"></a>
+<a href="temp4.html"><button>Template 4 - BUY ₹20</button></a>
+</div>
+
+<div class="box" id="te5">
+<a href="temp5.html"><img src="TEMP5.jpeg" alt="Template 5"></a>
+<a href="temp5.html"><button>Template 5 - BUY ₹20</button></a>
+</div>
+
+<div class="box" id="te6">
+<a href="temp6.html"><img src="TEMP6.jpeg" alt="Template 6"></a>
+<a href="temp6.html"><button>Template 6 - BUY ₹20</button></a>
+</div>
+
+</div>
+
+<footer style="text-align:center;padding:20px;background:#000;color:gold;font-size:11px;margin-top:20px;border-top:2px solid gold">
+© 2026 PANYAA CAPITAL | Amravati | Templates ₹20 | Your Growth Our Capital<br>
+Pawan Siddhartha Kota - Marathi Poraga Resume Builder
+</footer>
+
+<script>
+let currentOpen=null;
+function openBox(id){
+ if(currentOpen===id){closeBox(id);return;}
+ document.querySelectorAll('.content-box').forEach(b=>b.classList.remove('show'));
+ document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+ document.getElementById(id).classList.add('show');
+ let btnId='btn-'+id.replace('Box','');
+ if(document.getElementById(btnId)) document.getElementById(btnId).classList.add('active');
+ currentOpen=id;
+ document.getElementById(id).scrollIntoView({behavior:'smooth',block:'center'});
+}
+function closeBox(id){
+ document.getElementById(id).classList.remove('show');
+ currentOpen=null;
+}
+</script>
+
+</body>
+</html>

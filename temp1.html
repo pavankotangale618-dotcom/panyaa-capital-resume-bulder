@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PAWAN SIDDHARTHA KOTA - Resume Rs.20</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Times New Roman',Times,serif}
+body{background:#2a2f3a}
+header{background:#fff;padding:10px 15px;display:flex;justify-content:space-between;align-items:center;border-bottom:4px solid #333;position:sticky;top:0;z-index:20}
+header h1{font-size:12px;font-weight:900}
+.btn{padding:8px 14px;border:none;border-radius:20px;font-weight:800;cursor:pointer;font-size:11px;border:2px solid}
+.save{background:#333;color:#fff;border-color:#333}
+.print{background:#fff;color:#111;border-color:#111}
+.pay{background:#ff6a00;color:#fff;border-color:#ff6a00}
+.add{background:#333;color:#fff;border-color:#333}
+.minus{background:#c53030;color:#fff;border-color:#c53030}
+main{display:grid;grid-template-columns:400px 1fr;min-height:100vh}
+.form-box{background:#fffaf0;padding:14px;max-height:100vh;overflow:auto;border-right:4px solid #333}
+.form-box h3{background:#333;color:#fff;padding:6px 12px;border-radius:20px;font-size:11px;margin:12px 0 6px;text-transform:uppercase}
+.form-box label{font-size:11px;font-weight:700;color:#333;display:block;margin-top:7px}
+.form-box input,.form-box textarea{width:100%;padding:8px;border:1.5px solid #333;border-radius:6px;margin-top:3px;font-size:12px;font-family:Arial}
+.royal-box{border:1.5px dashed #333;background:#fff;padding:9px;border-radius:8px;margin:6px 0}
+.del{padding:0 8px;background:#c53030;color:#fff;border:none;border-radius:6px;cursor:pointer}
+.preview-box{background:#888;padding:15px;overflow:auto;display:flex;justify-content:center;position:relative}
+#resumePage{width:210mm;min-height:297mm;background:#fff;margin:auto;box-shadow:0 0 20px rgba(0,0,0,0.4);padding:6px}
+.inner{border:1.5px solid #000;padding:14px 18px;min-height:292mm}
+.res-head{font-size:20pt;font-weight:900;text-align:center;letter-spacing:1px}
+.top-flex{display:flex;justify-content:space-between;margin-top:12px;align-items:flex-start}
+.name-left{flex:1}
+.r-name{font-size:14pt;font-weight:900;text-transform:uppercase}
+.addr-box{border:1px solid #000;padding:8px 10px;margin-top:8px;width:92%;font-size:9.5pt;line-height:1.6}
+.photo-box{width:110px;height:135px;border:2px solid #000;overflow:hidden;flex-shrink:0;margin-left:10px}
+.photo-box img{width:100%;height:100%;object-fit:cover}
+.dark-bar{background:#3d3d3d;color:#fff;font-size:10.5pt;padding:5px 12px;margin-top:16px;text-transform:uppercase;letter-spacing:0.5px}
+.obj-text{text-align:center;font-size:9.5pt;margin-top:12px;line-height:1.4;padding:0 20px}
+.per-grid{display:grid;grid-template-columns:1fr 1fr;margin-top:10px;font-size:9.5pt;line-height:1.9}
+.edu-table{width:100%;border-collapse:collapse;margin-top:10px;font-size:8.8pt;text-align:center}
+.edu-table th,.edu-table td{border:1px solid #000;padding:5px 4px}
+@media print{header,.form-box,#payModal{display:none!important}main{display:block}.preview-box{padding:0;background:#fff}#resumePage{box-shadow:none;width:210mm}}
+</style>
+</head>
+<body>
+<header>
+<h1>PAWAN KOTA - Resume Maker (Rs.20)</h1>
+<div style="display:flex;gap:6px">
+<button class="btn pay" id="payBtn" onclick="openPay()">💳 Pay ₹20 to Download</button>
+<button class="btn save" onclick="saveFile()">💾 Save - Rs.20</button>
+<button class="btn print" onclick="window.print()">🖨️ Print</button>
+</div>
+</header>
+<main>
+<div class="form-box">
+<h3>💳 UPI SETTINGS - Rs.20</h3>
+<div class="royal-box" style="background:#fff3e0;border-color:#ff6a00">
+<label>UPI ID</label><input id="f_upi" value="918446059509@wahdfcbank" oninput="updateQR()">
+<label>Amount</label><input id="f_amount" value="20" type="number" oninput="updateQR()">
+</div>
+<h3>👤 Top</h3>
+<div class="royal-box">
+<label>Name</label><input id="f_name" value="M.PRVEENKUMAR SARATH." oninput="updateResume()">
+<label>Address Line 1</label><input id="f_addr1" value="14/8/25c, RMTN Colony," oninput="updateResume()">
+<label>Address Line 2</label><input id="f_addr2" value="RSM Road, Kanchipuram, Tamilnadu-580062." oninput="updateResume()">
+<label>Cell No</label><input id="f_cell" value="8325141111, 08251234474." oninput="updateResume()">
+<label>Email</label><input id="f_email" value="sarathpraveen@gmail.com" oninput="updateResume()">
+<label>Photo</label><input id="f_photo" type="file" accept="image/*">
+</div>
+<h3>🎯 Objective</h3>
+<textarea id="f_obj" rows="2" oninput="updateResume()">I want to succeed in a stimulating and challenging environment, building the success of the company while I experience advancement opportunities.</textarea>
+<h3>👤 Personal Details</h3>
+<div class="royal-box">
+<label>Father's Name</label><input id="f_father" value="S.Rajesh kumar." oninput="updateResume()">
+<label>Mother's Name</label><input id="f_mother" value="M.Aruna." oninput="updateResume()">
+<label>DOB</label><input id="f_dob" value="08/04/1990." oninput="updateResume()">
+<label>Age</label><input id="f_age" value="24-years-old." oninput="updateResume()">
+<label>Gender</label><input id="f_gender" value="Male." oninput="updateResume()">
+<label>Nationality</label><input id="f_nation" value="Indian." oninput="updateResume()">
+<label>Religion</label><input id="f_religion" value="Hindu." oninput="updateResume()">
+<label>Marital Status</label><input id="f_marital" value="Single." oninput="updateResume()">
+<label>Interest</label><input id="f_interest" value="Browsing, Book Reading." oninput="updateResume()">
+</div>
+<h3>🎓 Education - ADD / MINUS</h3>
+<div class="royal-box" id="eduBox"></div>
+<div style="display:flex;gap:6px"><button class="btn add" style="flex:1" onclick="addEdu()">➕ ADD Row</button><button class="btn minus" style="flex:1" onclick="removeEdu()">➖ MINUS</button></div>
+</div>
+
+<div class="preview-box">
+<div id="resumePage">
+<div class="inner">
+<div class="res-head">RESUME</div>
+<div class="top-flex">
+<div class="name-left">
+<div class="r-name" id="p_name">M.PRVEENKUMAR SARATH.</div>
+<div class="addr-box">
+<div id="p_addr1">14/8/25c, RMTN Colony,</div>
+<div id="p_addr2">RSM Road, Kanchipuram, Tamilnadu-580062.</div>
+<div>Cell no: <span id="p_cell">8325141111, 08251234474.</span></div>
+<div>E-mail: <b style="text-decoration:underline" id="p_email">sarathpraveen@gmail.com</b></div>
+</div>
+</div>
+<div class="photo-box"><img id="p_photo"><div id="ph" style="display:flex;align-items:center;justify-content:center;height:100%;background:#eee">Photo</div></div>
+</div>
+<div class="dark-bar">OBJECTIVE:</div>
+<div class="obj-text" id="p_obj"></div>
+<div class="dark-bar">PERSONAL DETAILS:</div>
+<div class="per-grid">
+<div>FATHER'S NAME &nbsp;&nbsp;&nbsp;: <span id="p_father">S.Rajesh kumar.</span></div>
+<div>MARITAL STATUS &nbsp;&nbsp;&nbsp;: <span id="p_marital">Single.</span></div>
+<div>MOTHER'S NAME &nbsp;: <span id="p_mother">M.Aruna.</span></div>
+<div>INTEREST &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <span id="p_interest">Browsing, Book Reading.</span></div>
+<div>DATE OF BIRTH &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <span id="p_dob">08/04/1990.</span></div>
+<div></div>
+<div>AGE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <span id="p_age">24-years-old.</span></div>
+<div>GENDER &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <span id="p_gender">Male.</span></div>
+<div>NATIONALITY &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <span id="p_nation">Indian.</span></div>
+<div>RELIGION &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <span id="p_religion">Hindu.</span></div>
+</div>
+<div class="dark-bar">EDUCATION QUALIFICATION:</div>
+<table class="edu-table" id="p_eduTable">
+<thead><tr><th>EXAMINATION</th><th>BOARD OR UNIVERSITY</th><th>INSTITUTE</th><th>YEAR</th><th>PERCENTAGE</th></tr></thead>
+<tbody id="p_eduBody"></tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+
+<!-- PAYMENT MODAL - Rs.20 -->
+<div id="payModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:999;align-items:center;justify-content:center;padding:15px">
+  <div style="background:#fff;padding:18px;border-radius:16px;text-align:center;max-width:360px;width:100%;border:4px solid #111;font-family:Arial">
+    <div style="background:#111;color:#fff;padding:6px 14px;border-radius:20px;font-size:11px;font-weight:800;display:inline-block">🔒 PAID DOWNLOAD</div>
+    <h3 style="margin:12px 0 4px;font-size:17px;font-weight:900;color:#111">Pay Rs.<span id="amtText">20</span> to Download</h3>
+    <p style="font-size:12px;color:#333;font-weight:700">PAWAN SIDDHARTHA KOTA</p>
+    
+    <div style="background:#fff;padding:8px;border:3px solid #000;border-radius:12px;margin:12px auto;width:230px">
+      <img id="qrImg" src="" style="width:100%;display:block">
+    </div>
+
+    <div style="background:#e8ffe8;border:1.5px dashed #16a34a;padding:8px;border-radius:8px;font-size:12px;font-weight:800;color:#111">
+      UPI ID: <span id="upiText">918446059509@wahdfcbank</span><br>Amount: ₹<span id="amtText2">20</span> Only
+    </div>
+
+    <input id="utrInput" type="tel" maxlength="12" placeholder="Enter 12-digit UTR No." 
+           style="width:100%;padding:12px;border:2px solid #111;border-radius:10px;margin-top:12px;font-weight:800;letter-spacing:1px;text-align:center;font-size:14px;font-family:Arial">
+
+    <p style="font-size:10px;color:#666;margin:6px 0;text-align:left;font-family:Arial">UTR kasa milel? Pay zalyavar GPay/PhonePe > Transaction > Details madhe 12 anki number disel.</p>
+
+    <div style="display:flex;gap:8px;margin-top:10px">
+      <button onclick="closePay()" style="flex:1;padding:12px;background:#fff;border:2px solid #111;border-radius:25px;font-weight:800;cursor:pointer">Cancel</button>
+      <button onclick="confirmPay()" style="flex:1;padding:12px;background:#16a34a;color:#fff;border:2px solid #16a34a;border-radius:25px;font-weight:800;cursor:pointer">✅ Verify & Download</button>
+    </div>
+  </div>
+</div>
+
+<script>
+let edus=[
+{ex:"S.S.L.C",board:"State Board Of Tamilnadu.",inst:"Thambi Thottam Higher Secondary School (Kanchiburarn).",year:"2009",perc:"75.8 %"},
+{ex:"H.S.C",board:"State Board Of Tamilnadu.",inst:"Thambi Thottam Higher Secondary School (Kanchiburarn).",year:"2011",perc:"88.08 %"},
+{ex:"B.Com",board:"Madurai Kamaraj University.",inst:"R.T.N Arts College (Kanchiburarn).",year:"2014",perc:"65.15 %"},
+{ex:"M.Com",board:"Madurai Kamaraj University.",inst:"R.T.N Arts College (Kanchiburarn).",year:"2016",perc:"Waiting for final semester result 2016."},
+{ex:"DOA",board:"Private.",inst:"A.Nisanth Computers (Kanchiburarn).",year:"2012",perc:"73.6 %"}
+];
+let paymentVerified = localStorage.getItem('pawan_paid_20') === 'yes';
+
+function renderEduForm(){
+ let box=document.getElementById('eduBox');box.innerHTML='';
+ edus.forEach((e,i)=>{
+  box.innerHTML+=`<div style="border:1px solid #aaa;padding:6px;border-radius:6px;margin-bottom:6px"><div style="display:flex;justify-content:space-between"><b style="font-size:10px">${e.ex}</b><button class="del" onclick="delEdu(${i})">❌</button></div>
+  <input value="${e.ex}" placeholder="Examination" oninput="edus[${i}].ex=this.value;updateResume()" style="margin-top:3px">
+  <input value="${e.board}" placeholder="Board" oninput="edus[${i}].board=this.value;updateResume()" style="margin-top:3px">
+  <input value="${e.inst}" placeholder="Institute" oninput="edus[${i}].inst=this.value;updateResume()" style="margin-top:3px">
+  <div style="display:flex;gap:4px;margin-top:3px"><input value="${e.year}" placeholder="Year" oninput="edus[${i}].year=this.value;updateResume()"><input value="${e.perc}" placeholder="%" oninput="edus[${i}].perc=this.value;updateResume()"></div></div>`;
+ });
+}
+function addEdu(){edus.push({ex:"New Exam",board:"Board",inst:"Institute",year:"2024",perc:"75 %"});renderEduForm();updateResume();}
+function removeEdu(){if(edus.length>1){edus.pop();renderEduForm();updateResume();}}
+function delEdu(i){if(edus.length>1){edus.splice(i,1);renderEduForm();updateResume();}}
+function updateResume(){
+ document.getElementById('p_name').textContent=document.getElementById('f_name').value;
+ document.getElementById('p_addr1').textContent=document.getElementById('f_addr1').value;
+ document.getElementById('p_addr2').textContent=document.getElementById('f_addr2').value;
+ document.getElementById('p_cell').textContent=document.getElementById('f_cell').value;
+ document.getElementById('p_email').textContent=document.getElementById('f_email').value;
+ document.getElementById('p_obj').textContent=document.getElementById('f_obj').value;
+ document.getElementById('p_father').textContent=document.getElementById('f_father').value;
+ document.getElementById('p_mother').textContent=document.getElementById('f_mother').value;
+ document.getElementById('p_dob').textContent=document.getElementById('f_dob').value;
+ document.getElementById('p_age').textContent=document.getElementById('f_age').value;
+ document.getElementById('p_gender').textContent=document.getElementById('f_gender').value;
+ document.getElementById('p_nation').textContent=document.getElementById('f_nation').value;
+ document.getElementById('p_religion').textContent=document.getElementById('f_religion').value;
+ document.getElementById('p_marital').textContent=document.getElementById('f_marital').value;
+ document.getElementById('p_interest').textContent=document.getElementById('f_interest').value;
+ let tbody=document.getElementById('p_eduBody');tbody.innerHTML='';
+ edus.forEach(e=>{let tr=document.createElement('tr');tr.innerHTML=`<td>${e.ex}</td><td>${e.board}</td><td>${e.inst}</td><td>${e.year}</td><td>${e.perc}</td>`;tbody.appendChild(tr);});
+ if(paymentVerified){document.getElementById('payBtn').innerHTML='✅ ₹20 Paid & Unlocked';}
+}
+document.getElementById('f_photo').addEventListener('change',function(){const f=this.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{document.getElementById('p_photo').src=r.result;document.getElementById('p_photo').style.display='block';document.getElementById('ph').style.display='none';};r.readAsDataURL(f);});
+
+// QR + PAY - Rs.20
+function updateQR(){
+ let upi = document.getElementById('f_upi').value.trim();
+ let amt = document.getElementById('f_amount').value.trim() || '20';
+ document.getElementById('upiText').textContent = upi;
+ document.getElementById('amtText').textContent = amt;
+ document.getElementById('amtText2').textContent = amt;
+ let upiLink = `upi://pay?pa=${upi}&pn=PAWAN%20SIDDHARTHA%20KOTA&am=${amt}&cu=INR&tn=Resume_Download`;
+ let qrApi = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(upiLink)}`;
+ document.getElementById('qrImg').src = qrApi;
+}
+function openPay(){document.getElementById('payModal').style.display='flex'; updateQR();}
+function closePay(){document.getElementById('payModal').style.display='none'}
+function saveFile(){
+  if(paymentVerified){ doDownload(); return; }
+  openPay();
+}
+function confirmPay(){
+  let utr = document.getElementById('utrInput').value.trim();
+  if(!/^\d{12}$/.test(utr)){ alert('❌ Khara 12 anki UTR taka'); return; }
+  localStorage.setItem('pawan_paid_20','yes');
+  localStorage.setItem('pawan_utr_20', utr);
+  paymentVerified = true;
+  closePay();
+  setTimeout(()=>{ doDownload(); alert('✅ Payment Verified! UTR: '+utr+' - Download Zala'); }, 600);
+}
+function doDownload(){
+  let html=document.getElementById('resumePage').outerHTML;
+  let full=`<!DOCTYPE html><html><head><meta charset="UTF-8"><style>body{margin:0;background:#fff}#resumePage{width:210mm;min-height:297mm;background:#fff;margin:auto;padding:6px}.inner{border:1.5px solid #000;padding:14px 18px;min-height:292mm}.res-head{font-size:20pt;font-weight:900;text-align:center}.top-flex{display:flex;justify-content:space-between;margin-top:12px}.r-name{font-size:14pt;font-weight:900;text-transform:uppercase}.addr-box{border:1px solid #000;padding:8px 10px;margin-top:8px;width:92%;font-size:9.5pt;line-height:1.6}.photo-box{width:110px;height:135px;border:2px solid #000;overflow:hidden}.photo-box img{width:100%;height:100%;object-fit:cover}.dark-bar{background:#3d3d3d;color:#fff;font-size:10.5pt;padding:5px 12px;margin-top:16px;text-transform:uppercase}.obj-text{text-align:center;font-size:9.5pt;margin-top:12px}.per-grid{display:grid;grid-template-columns:1fr 1fr;margin-top:10px;font-size:9.5pt;line-height:1.9}.edu-table{width:100%;border-collapse:collapse;margin-top:10px;font-size:8.8pt;text-align:center}.edu-table th,.edu-table td{border:1px solid #000;padding:5px 4px}</style></head><body>${html}</body></html>`;
+  let blob=new Blob([full],{type:'text/html'}); let a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='Pawan_Resume_SameToSame_Rs20.html'; a.click();
+}
+renderEduForm();updateResume();updateQR();
+</script>
+</body>
+</html>

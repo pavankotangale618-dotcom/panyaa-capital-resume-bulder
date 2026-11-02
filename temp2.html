@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANUSHA REDDY - Paid Download</title>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial,sans-serif}
+body{background:#1e2e3a}
+header{background:#fff;padding:10px 15px;display:flex;justify-content:space-between;align-items:center;border-bottom:4px solid #0a7a7a;position:sticky;top:0;z-index:20}
+header h1{font-size:12px;font-weight:900;color:#0a7a7a}
+.btn{padding:8px 14px;border:none;border-radius:20px;font-weight:800;cursor:pointer;font-size:11px;border:2px solid}
+.save{background:#0a7a7a;color:#fff;border-color:#0a7a7a}
+.print{background:#fff;color:#111;border-color:#111}
+.pay{background:#ff6a00;color:#fff;border-color:#ff6a00}
+.add{background:#0a7a7a;color:#fff;border-color:#0a7a7a}
+.minus{background:#c53030;color:#fff;border-color:#c53030}
+main{display:grid;grid-template-columns:400px 1fr;min-height:100vh}
+.form-box{background:#fffaf0;padding:14px;max-height:100vh;overflow:auto;border-right:4px solid #0a7a7a}
+.form-box h3{background:#0a7a7a;color:#fff;padding:6px 12px;border-radius:20px;font-size:11px;margin:12px 0 6px;text-transform:uppercase}
+.form-box label{font-size:11px;font-weight:700;color:#333;display:block;margin-top:7px}
+.form-box input,.form-box textarea{width:100%;padding:8px;border:1.5px solid #0a7a7a;border-radius:6px;margin-top:3px;font-size:12px}
+.royal-box{border:1.5px dashed #0a7a7a;background:#fff;padding:9px;border-radius:8px;margin:6px 0}
+.item-row{display:flex;gap:5px;margin-top:5px}
+.item-row input{flex:1}
+.del{padding:0 8px;background:#c53030;color:#fff;border:none;border-radius:6px;cursor:pointer}
+.preview-box{background:#666;padding:15px;overflow:auto;display:flex;justify-content:center;position:relative}
+#resumePage{width:210mm;min-height:297mm;background:#fff;margin:auto;box-shadow:0 0 20px rgba(0,0,0,0.4);padding:18px 18px 12px;font-size:9.2pt;line-height:1.5;color:#111}
+.top-row{display:flex;justify-content:space-between;align-items:flex-start}
+.r-name{font-size:16pt;font-weight:800;color:#0a7a7a;text-align:center;text-transform:uppercase}
+.r-contact{font-size:8.8pt;margin-top:4px;line-height:1.5}
+.r-sub{font-size:8.5pt;font-weight:600;font-style:italic;margin-top:3px;text-decoration:underline}
+.photo-box{width:85px;height:108px;background:#ddd;overflow:hidden;flex-shrink:0;border:2px solid #0a7a7a;margin-left:12px}
+.photo-box img{width:100%;height:100%;object-fit:cover}
+.sec-head{background:#0f7a7a;color:#fff;text-align:center;font-weight:800;font-size:9pt;padding:4px 0;margin-top:14px;text-transform:uppercase}
+.sec-content{margin-top:8px;font-size:8.8pt}
+.bullet{margin-left:18px}.bullet li{margin-top:3px;list-style-type:circle}
+.bullet-year{display:flex;justify-content:space-between}
+.place-sign{display:flex;justify-content:space-between;margin-top:18px;font-size:9pt}
+
+/* PAID DOWNLOAD POPUP - SAME AS YOUR SCREENSHOT */
+.paid-overlay{position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.85);display:flex;align-items:center;justify-content:center;z-index:50;padding:15px}
+.paid-card{background:#fdf6ee;width:360px;max-width:90%;border-radius:15px;padding:18px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,0.5);border:2px solid #fff}
+.paid-badge{background:#111;color:#fff;padding:6px 14px;border-radius:20px;font-size:12px;font-weight:800;display:inline-block;margin-bottom:10px}
+.paid-card h2{font-size:18px;margin:5px 0}
+.paid-card h3{font-size:13px;color:#333;font-weight:600}
+.qr-box{background:#fff;padding:10px;border-radius:12px;margin:12px auto;width:220px;border:2px solid #111}
+.qr-box img{width:100%;display:block}
+.upi-info{border:1.5px dashed #999;border-radius:8px;padding:8px;font-size:11px;margin:10px 0;background:#fff8f0}
+.utr-input{width:100%;padding:12px;border:2px solid #111;border-radius:10px;font-size:14px;text-align:center;font-weight:700;margin-top:10px}
+.btn-row{display:flex;gap:10px;margin-top:12px}
+.btn-cancel{flex:1;padding:12px;border:2px solid #111;border-radius:25px;background:#fff;font-weight:800;cursor:pointer}
+.btn-verify{flex:1;padding:12px;border:none;border-radius:25px;background:#16a34a;color:#fff;font-weight:800;cursor:pointer}
+.utr-hint{font-size:9px;color:#666;margin-top:6px;text-align:left}
+
+@media print{header,.form-box,.paid-overlay{display:none!important}main{display:block}.preview-box{padding:0;background:#fff}#resumePage{box-shadow:none;width:210mm}}
+</style>
+</head>
+<body>
+<header>
+<h1>ANUSHA REDDY</h1>
+<div style="display:flex;gap:6px">
+<button class="btn pay" id="payBtn" onclick="openPaidPopup()">💳 Pay ₹20 to Download</button>
+<button class="btn save" onclick="saveFile()">💾 Save</button>
+<button class="btn print" onclick="window.print()">🖨️ Print</button>
+</div>
+</header>
+<main>
+<div class="form-box">
+<div class="royal-box" style="background:#fff3e0;border-color:#ff6a00">
+<label>💳 Tujha UPI ID (Change karu shakto)</label>
+<input id="f_upi" value="918446059509@wahdfcbank" oninput="updateQR()">
+<label>Amount</label>
+<input id="f_amount" value="20" type="number" oninput="updateQR()">
+</div>
+<h3>👤 Top</h3>
+<div class="royal-box">
+<label>Full Name</label><input id="f_name" value="ANUSHA REDDY" oninput="updateResume()">
+<label>Mobile</label><input id="f_mobile" value="9845XXXX25" oninput="updateResume()">
+<label>Email</label><input id="f_email" value="anushardyxx@gmail.com" oninput="updateResume()">
+<label>Address</label><input id="f_addr" value="1-123, Srinivas Nagar, Benz Circle, Vijayawada 520010" oninput="updateResume()">
+<label>Sub Title Line</label><input id="f_sub" value="B. Sc Physics | Teaching Role | Physics, Digital Teaching, Classroom Management" oninput="updateResume()">
+<label>Photo</label><input id="f_photo" type="file" accept="image/*">
+</div>
+<h3>🎯 Career Objective</h3>
+<textarea id="f_obj" rows="3" oninput="updateResume()">A dedicated and B. Sc passionate graduate in Physics, aiming to begin my teaching career by sharing knowledge with students. I love explaining science in a simple ad interesting way to help students enjoy learning.</textarea>
+<h3>🎓 Education</h3>
+<div class="royal-box" id="eduBox"></div>
+<div style="display:flex;gap:6px"><button class="btn add" style="flex:1" onclick="addItem('edu')">➕ ADD</button><button class="btn minus" style="flex:1" onclick="removeItem('edu')">➖ MINUS</button></div>
+<h3>⭐ Key Skills</h3>
+<div class="royal-box" id="skillBox"></div>
+<div style="display:flex;gap:6px"><button class="btn add" style="flex:1" onclick="addItem('skill')">➕ ADD</button><button class="btn minus" style="flex:1" onclick="removeItem('skill')">➖ MINUS</button></div>
+<h3>🏫 Teaching Experience</h3>
+<div class="royal-box">
+<label>Title Line</label><input id="f_expTitle" value="Teaching Intern at ABC Public Schook, Vijayawada January 2025 to March 2025." oninput="updateResume()">
+<div id="expPointBox"></div>
+<div style="display:flex;gap:6px;margin-top:6px"><button class="btn add" style="flex:1" onclick="addItem('exp')">➕ ADD Point</button><button class="btn minus" style="flex:1" onclick="removeItem('exp')">➖ MINUS</button></div>
+</div>
+<h3>🏆 Achievements</h3>
+<div class="royal-box" id="achBox"></div>
+<div style="display:flex;gap:6px"><button class="btn add" style="flex:1" onclick="addItem('ach')">➕ ADD</button><button class="btn minus" style="flex:1" onclick="removeItem('ach')">➖ MINUS</button></div>
+<h3>👤 Personal Details</h3>
+<div class="royal-box">
+<label>DOB</label><input id="f_dob" value="15 July 2003" oninput="updateResume()">
+<label>Languages</label><input id="f_lang" value="English, Hindi, Telugu" oninput="updateResume()">
+<label>Marital Status</label><input id="f_marital" value="Unmarried" oninput="updateResume()">
+<label>Hobbies</label><input id="f_hobby" value="Drawing, Reading" oninput="updateResume()">
+<label>Place</label><input id="f_place" value="Vijayawada" oninput="updateResume()">
+<label>Date</label><input id="f_date" value="" oninput="updateResume()">
+</div>
+</div>
+<div class="preview-box">
+
+<!-- SAME AS YOUR SCREENSHOT POPUP -->
+<div id="paidPopup" class="paid-overlay">
+  <div class="paid-card">
+    <div class="paid-badge">🔒 PAID DOWNLOAD</div>
+    <h2>Pay Rs.<span id="amtText">20</span> to Download</h2>
+    <h3>ANUSHA REDDY</h3>
+    <div class="qr-box">
+      <img id="qrImg" src="" alt="UPI QR">
+    </div>
+    <div class="upi-info">
+      UPI ID: <b id="upiText">918446059509@wahdfcbank</b><br>
+      Amount: <b>₹<span id="amtText2">20</span> Only</b>
+    </div>
+    <input id="utrInput" class="utr-input" placeholder="Enter 12-digit UTR No." maxlength="12" inputmode="numeric">
+    <div class="utr-hint">UTR kasa milel? Pay zalyavar GPay/PhonePe > Transaction > Details madhe 12 anki number disel.</div>
+    <div class="btn-row">
+      <button class="btn-cancel" onclick="closePaidPopup()">Cancel</button>
+      <button class="btn-verify" onclick="verifyAndDownload()">✅ Verify &<br>Download</button>
+    </div>
+  </div>
+</div>
+
+<div id="resumePage">
+<div class="top-row">
+<div class="top-left">
+<div class="r-name" id="p_name">ANUSHA REDDY</div>
+<div class="r-contact">◐ <span id="p_mobile">9845XXXX25</span> | ✉ <span id="p_email">anushardyxx@gmail.com</span><br><span id="p_addr">1-123, Srinivas Nagar, Benz Circle, Vijayawada 520010</span></div>
+<div class="r-sub" id="p_sub">B. Sc Physics | Teaching Role | Physics, Digital Teaching, Classroom Management</div>
+</div>
+<div class="photo-box"><img id="p_photo" style="display:none"><div id="ph" style="display:flex;align-items:center;justify-content:center;height:100%;font-size:24px;background:#e0f2f2"></div></div>
+</div>
+<div class="sec-head">Career Objective</div>
+<div class="sec-content" id="p_obj"></div>
+<div class="sec-head">Education</div>
+<ul class="bullet" id="p_edu"></ul>
+<div class="sec-head">Key Skills</div>
+<ul class="bullet" id="p_skill"></ul>
+<div class="sec-head">Teaching Experience (Internship)</div>
+<div class="sec-content"><div id="p_expTitle"></div><ul class="bullet" id="p_exp"></ul></div>
+<div class="sec-head">Achievements</div>
+<ul class="bullet" id="p_ach"></ul>
+<div class="sec-head">Personal Details</div>
+<ul class="bullet"><li>Date of Birth: <span id="p_dob">15 July 2003</span></li><li>Languages Known: <span id="p_lang">English, Hindi, Telugu</span></li><li>Marital Status: <span id="p_marital">Unmarried</span></li><li>Hobbies: <span id="p_hobby">Drawing, Reading</span></li></ul>
+<div class="sec-content" style="margin-top:12px">Declaration: I hereby declare that all the information provided above are true to the best of my knowledge and belief.</div>
+<div class="place-sign"><div>Place: <span id="p_place">Vijayawada</span><br>Date: <span id="p_date"></span></div><div style="margin-top:10px">Signature</div></div>
+</div>
+</div>
+</main>
+<script>
+let edus=[{t:"B. Sc in MPC from Lorem College, CGPA 8.2",y:"2025"},{t:"Intermediate MPC, Ipsum Jr College, CGPA 8.5",y:"2022"},{t:"SSC, Lorem High School, GPA 8.7",y:"2020"}];
+let skills=["Good knowledge in Physics and General Science","Can explain difficult topics in simple way","Confident in class presentations and science experiments","Good time management and organization","Friendly and supportive with students","MS Office, Google Classroom"];
+let exps=["Assisted Physics teacher for grade 9 and 10 classes","Helped conduct lab experiments and science activities","Provided individual helps to students during doubt clearing sessions"];
+let achs=["Topper in in Physics in B. Sc final year","Participated in College Science Fair and won second prize."];
+let isPaid = localStorage.getItem('resumePaid') === 'true';
+
+function renderAll(){
+ let box=document.getElementById('eduBox');box.innerHTML='';edus.forEach((e,i)=>{box.innerHTML+=`<div class="item-row"><input value="${e.t.replace(/"/g,'&quot;')}" oninput="edus[${i}].t=this.value;updateResume()"><input value="${e.y}" style="width:60px" oninput="edus[${i}].y=this.value;updateResume()"><button class="del" onclick="del('edu',${i})">❌</button></div>`;});
+ box=document.getElementById('skillBox');box.innerHTML='';skills.forEach((v,i)=>{box.innerHTML+=`<div class="item-row"><input value="${v.replace(/"/g,'&quot;')}" oninput="skills[${i}]=this.value;updateResume()"><button class="del" onclick="del('skill',${i})">❌</button></div>`;});
+ box=document.getElementById('expPointBox');box.innerHTML='';exps.forEach((v,i)=>{box.innerHTML+=`<div class="item-row"><input value="${v.replace(/"/g,'&quot;')}" oninput="exps[${i}]=this.value;updateResume()"><button class="del" onclick="del('exp',${i})">❌</button></div>`;});
+ box=document.getElementById('achBox');box.innerHTML='';achs.forEach((v,i)=>{box.innerHTML+=`<div class="item-row"><input value="${v.replace(/"/g,'&quot;')}" oninput="achs[${i}]=this.value;updateResume()"><button class="del" onclick="del('ach',${i})">❌</button></div>`;});
+}
+function addItem(t){let v=prompt('Add kara:');if(!v)return;if(t=='edu')edus.push({t:v,y:"2025"});if(t=='skill')skills.push(v);if(t=='exp')exps.push(v);if(t=='ach')achs.push(v);renderAll();updateResume();}
+function removeItem(t){if(t=='edu'&&edus.length>1){edus.pop();renderAll();updateResume();}if(t=='skill'&&skills.length>1){skills.pop();renderAll();updateResume();}if(t=='exp'&&exps.length>1){exps.pop();renderAll();updateResume();}if(t=='ach'&&achs.length>1){achs.pop();renderAll();updateResume();}}
+function del(t,i){if(t=='edu'&&edus.length>1){edus.splice(i,1);renderAll();updateResume();}if(t=='skill'&&skills.length>1){skills.splice(i,1);renderAll();updateResume();}if(t=='exp'&&exps.length>1){exps.splice(i,1);renderAll();updateResume();}if(t=='ach'&&achs.length>1){achs.splice(i,1);renderAll();updateResume();}}
+function updateResume(){
+ document.getElementById('p_name').textContent=document.getElementById('f_name').value;
+ document.getElementById('p_mobile').textContent=document.getElementById('f_mobile').value;
+ document.getElementById('p_email').textContent=document.getElementById('f_email').value;
+ document.getElementById('p_addr').textContent=document.getElementById('f_addr').value;
+ document.getElementById('p_sub').textContent=document.getElementById('f_sub').value;
+ document.getElementById('p_obj').textContent=document.getElementById('f_obj').value;
+ document.getElementById('p_expTitle').textContent=document.getElementById('f_expTitle').value;
+ document.getElementById('p_dob').textContent=document.getElementById('f_dob').value;
+ document.getElementById('p_lang').textContent=document.getElementById('f_lang').value;
+ document.getElementById('p_marital').textContent=document.getElementById('f_marital').value;
+ document.getElementById('p_hobby').textContent=document.getElementById('f_hobby').value;
+ document.getElementById('p_place').textContent=document.getElementById('f_place').value;
+ document.getElementById('p_date').textContent=document.getElementById('f_date').value;
+ let ul=document.getElementById('p_edu');ul.innerHTML='';edus.forEach(e=>{let li=document.createElement('li');li.innerHTML=`<div class="bullet-year"><span>${e.t}</span><span>${e.y}</span></div>`;ul.appendChild(li);});
+ ul=document.getElementById('p_skill');ul.innerHTML='';skills.forEach(s=>{let li=document.createElement('li');li.textContent=s;ul.appendChild(li);});
+ ul=document.getElementById('p_exp');ul.innerHTML='';exps.forEach(s=>{let li=document.createElement('li');li.textContent=s;ul.appendChild(li);});
+ ul=document.getElementById('p_ach');ul.innerHTML='';achs.forEach(s=>{let li=document.createElement('li');li.textContent=s;ul.appendChild(li);});
+ if(isPaid){document.getElementById('paidPopup').style.display='none'; document.getElementById('payBtn').innerHTML='✅ ₹10 Paid & Unlocked';}
+}
+document.getElementById('f_photo').addEventListener('change',function(){const f=this.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{document.getElementById('p_photo').src=r.result;document.getElementById('p_photo').style.display='block';document.getElementById('ph').style.display='none';};r.readAsDataURL(f);});
+
+// QR GENERATE
+function updateQR(){
+ let upi = document.getElementById('f_upi').value.trim();
+ let amt = document.getElementById('f_amount').value.trim() || '10';
+ document.getElementById('upiText').textContent = upi;
+ document.getElementById('amtText').textContent = amt;
+ document.getElementById('amtText2').textContent = amt;
+ let upiLink = `upi://pay?pa=${upi}&pn=ResumeMaker&am=${amt}&cu=INR&tn=ResumeDownload`;
+ let qrApi = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(upiLink)}`;
+ document.getElementById('qrImg').src = qrApi;
+}
+function openPaidPopup(){document.getElementById('paidPopup').style.display='flex'; updateQR();}
+function closePaidPopup(){document.getElementById('paidPopup').style.display='none';}
+
+function verifyAndDownload(){
+ let utr = document.getElementById('utrInput').value.trim();
+ if(!/^\d{12}$/.test(utr)){
+   alert('❌ 12-digit UTR number taka! GPay/PhonePe madhe transaction details madhe bhetel.');
+   return;
+ }
+ // Yethe real verification pahije asel tar server la pathvava lagel - ata demo sathi local unlock
+ localStorage.setItem('resumePaid','true');
+ localStorage.setItem('lastUTR', utr);
+ isPaid=true;
+ document.getElementById('paidPopup').style.display='none';
+ document.getElementById('payBtn').innerHTML='✅ ₹'+document.getElementById('f_amount').value+' Paid & Unlocked';
+ alert('✅ Payment Verified! UTR: '+utr+'\nAta Download Unlock zala!');
+ saveFile();
+}
+
+function saveFile(){
+ if(!isPaid){ openPaidPopup(); return; }
+ let html=document.getElementById('resumePage').outerHTML;
+ let full=`<!DOCTYPE html><html><head><meta charset="UTF-8"><style>body{margin:0;background:#fff}#resumePage{width:210mm;min-height:297mm;background:#fff;margin:auto;padding:18px;font-size:9.2pt}</style></head><body>${html}</body></html>`;
+ let blob=new Blob([full],{type:'text/html'});let a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='Anusha_Reddy_Resume_A4.html';a.click();
+}
+renderAll();updateResume();updateQR();
+if(isPaid) document.getElementById('paidPopup').style.display='none';
+</script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PANYAA CAPITAL - Resume Builder | Amravati</title>
+<style>
+*{box-sizing:border-box;font-family:'Inter',sans-serif}
+body{margin:0;background:#f5f5f5;color:#111}
+header{display:flex;justify-content:space-between;align-items:center;padding:15px 30px;background:#000;color:#fff;position:sticky;top:0;z-index:20;border-bottom:2.5px solid gold}
+.logo{font-weight:900;font-size:22px;line-height:0.9;letter-spacing:-1px}
+.logo span{color:gold}
+nav{display:flex;gap:8px;flex-wrap:wrap}
+nav button{padding:7px 16px;border-radius:20px;border:1.5px solid gold;background:#111;color:gold;font-weight:800;cursor:pointer;font-size:11px}
+nav button:hover, nav button.active{background:gold;color:#000}
+nav a button{background:#fff;color:#000;border-color:#fff}
+.top-title{text-align:center;padding:20px;background:#000;color:#fff}
+.top-title h1{margin:0;font-size:20px} .top-title h1 b{color:gold}
+.top-title p{font-size:11px;margin-top:6px;color:#ccc}
+
+.builder{max-width:900px;margin:20px auto;background:#fff;padding:22px;border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.1);border:2px solid #000}
+.builder h2{text-align:center;color:#000;margin:0 0 15px;font-weight:900}
+.builder h3{font-size:14px;color:#000;margin:18px 0 8px;border-left:4px solid gold;padding-left:8px;font-weight:900}
+label{font-size:12px;font-weight:700;margin-top:8px;display:block}
+input, textarea, select{width:100%;padding:10px;margin:4px 0 8px;border:1.5px solid #000;border-radius:8px;font-size:13px}
+.row{display:flex;gap:8px} .row input{flex:1}
+.btn{padding:8px 14px;border-radius:20px;border:1.5px solid #000;background:#fff;color:#000;font-weight:800;cursor:pointer;font-size:11px;margin:4px 2px}
+.btn:hover{background:#000;color:#fff}
+.btn-gold{background:gold;color:#000;border-color:gold;font-weight:900}
+.btn-gold:hover{background:#000;color:gold}
+.btn-del{background:#ffdddd;color:#a00;border-color:#faa}
+.edu-box{border:1.5px dashed #000;padding:10px;border-radius:10px;margin:8px 0;background:#fafafa;position:relative}
+.edu-box .del{position:absolute;top:5px;right:5px}
+.save-panel{background:#000;border:2px solid gold;border-radius:14px;padding:15px;margin:15px 0;color:#fff}
+.save-panel h3{color:gold;border:none;margin:0 0 10px;padding:0}
+.save-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.save-row button{flex:1;min-width:120px;padding:10px;border-radius:30px;font-weight:900;cursor:pointer;border:none}
+.page{width:210mm;min-height:297mm;margin:20px auto;padding:15mm 18mm;background:#fff;box-shadow:0 0 8px #aaa;font-family:"Times New Roman",serif;color:#111;display:none;position:relative}
+.page h1{text-align:center;font-size:25px;margin:0 0 5px;text-transform:uppercase}
+.contact{text-align:center;font-size:13px;margin-bottom:12px}
+.page hr{border:0;border-top:2px solid #222}
+.page h2{font-size:16px;border-bottom:1px solid #333;padding-bottom:3px;margin:13px 0 6px;text-transform:uppercase}
+.page p, .page li, .page td{font-size:13px;line-height:1.35}
+.page table{width:100%;border-collapse:collapse;margin-top:5px}
+.page th, .page td{border:1px solid #555;padding:6px;text-align:left}
+.page th{background:#eee}
+.page ul{margin:4px 0;padding-left:20px}
+.details{display:grid;grid-template-columns:1fr 1fr;gap:5px 18px}
+.signature{text-align:right;margin-top:18px}
+.print-bar{max-width:210mm;margin:10px auto;display:none;gap:8px;padding:0 15px}
+.print-bar button{flex:1;padding:12px;border-radius:30px;font-weight:900;cursor:pointer;border:2px solid #000}
+#pPhoto{width:95px;height:115px;object-fit:cover;border:1.5px solid #333;border-radius:8px;position:absolute;top:15mm;right:18mm;display:none}
+@page{size:A4;margin:0}
+@media print{body{background:#fff} header, .builder, .print-bar.hide-print, .top-title{display:none !important} .page{display:block !important;margin:0;padding:15mm 18mm;box-shadow:none}}
+
+/* TOGGLE CONTAINERS - INDEX SARKHE */
+.content-box{display:none;max-width:900px;margin:20px auto;padding:25px;border:2.5px solid #000;border-radius:16px;background:#fff;position:relative;animation:openAnim 0.3s}
+.content-box.show{display:block}
+@keyframes openAnim{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+.close-btn{position:absolute;top:12px;right:16px;font-size:26px;font-weight:900;cursor:pointer;background:#000;color:#fff;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+</style>
+</head>
+<body>
+
+<header>
+<div class="logo">PANYAA<br><span>CAPITAL</span></div>
+<nav>
+<button onclick="openBox('aboutBox')">ABOUT</button>
+<button onclick="openBox('workBox')">WORK</button>
+<button onclick="openBox('projectBox')">PROJECTS</button>
+<button onclick="openBox('contactBox')">CONTACT</button>
+<a href="index.html"><button >🏠 HOME</button></a>
+</nav>
+</header>
+
+<div class="top-title">
+<h1>PANYAA CAPITAL!🦁 <b>A4 Formal FREE!!</b> #FREE 100% Resume Builder</h1>
+<p><b>मराठी पोरगा रेझ्युमे बनवतो, इंग्लिश मध्ये ऑब्जेक्टिव्ह लिहितो - "भावा, नोकरी लागली की #panyaa capital बोर्ड लावतो!"</b> | Amravati</p>
+</div>
+
+<!-- TOGGLE BOXES - INDEX MADHECH OPEN/CLOSE -->
+<div id="aboutBox" class="content-box">
+<span class="close-btn" onclick="closeBox('aboutBox')">×</span>
+<h2>ABOUT US</h2>
+<p><b>PANYAA CAPITAL</b> - Amravati madhun. Builder-led venture + Resume Builder studio.</p>
+<p>Early-stage founders la 0 to 1 build, scale. Focus AI + B2B SaaS + Free Resume Help.</p>
+</div>
+
+<div id="workBox" class="content-box">
+<span class="close-btn" onclick="closeBox('workBox')">×</span>
+<h2>WORK</h2>
+<p><b>1. Founder - Resume Builder:</b> 1000+ resume banvle.</p>
+<p><b>2. Partner - Panyaa Capital:</b> Investment, GTM.</p>
+<p><b>3. Finance Consultant:</b> Small business growth.</p>
+</div>
+
+<div id="projectBox" class="content-box">
+<span class="close-btn" onclick="closeBox('projectBox')">×</span>
+<h2>PROJECTS</h2>
+<p><b>1. Resume Builder Website</b> - 50+ templates<br><b>2. WhatsApp Channel</b> - 10K target<br><b>3. Royal Poster Maker</b></p>
+</div>
+
+<div id="contactBox" class="content-box" style="background:#000;color:#fff;border-color:gold;text-align:center;">
+<span class="close-btn" onclick="closeBox('contactBox')" style="background:#fff;color:#000;">×</span>
+<h2 style="color:gold;">CONTACT US</h2>
+<h3>PAWAN SIDDHARTHA KOTA</h3>
+<p>📍 Amravati, Maharashtra</p>
+<img src="qr.png" style="width:200px;border-radius:12px;margin:15px auto;display:block;background:#fff;padding:8px;">
+<div style="background:#fff;color:#000;padding:10px;border-radius:8px;font-weight:700;font-size:12px;word-break:break-all;">UPI ID: 918446059509@wahdfcbank</div>
+<a href="https://wa.me/91918446059509" style="background:gold;color:#000;padding:12px 30px;border-radius:25px;text-decoration:none;font-weight:900;display:inline-block;margin-top:15px;">WhatsApp Contact</a>
+</div>
+
+<div class="builder" id="builder">
+<h2>📝 Customize Resume - Panyaa Style</h2>
+
+<div class="save-panel">
+<h3>💾 SAVE FILE OPTION</h3>
+<p style="font-size:11px;color:#aaa">Tumcha resume auto browser madhe save hoto.</p>
+<div class="save-row">
+<button style="background:#fff;color:#000" onclick="saveToStorage()">💾 Save to Browser</button>
+<button style="background:gold;color:#000" onclick="saveAsHTML()">📄 Save As HTML</button>
+<button style="background:#111;color:#fff;border:1px solid gold" onclick="saveAsJSON()">📦 JSON File</button>
+<button style="background:#0a8a0a;color:#fff" onclick="saveAsText()">📝 Text File</button>
+</div>
+<div class="save-row">
+<button style="background:#fff;color:#000;border:1.5px solid #000" onclick="loadSaved()">📂 Load Last Saved</button>
+<button style="background:#ffdddd;color:#a00;border:1px solid #faa" onclick="clearSaved()">🗑️ Clear</button>
+<button style="background:gold;color:#000;border:1.5px solid gold" onclick="window.print()">🖨️ Save As PDF</button>
+</div>
+<p id="saveStatus" style="font-size:11px;color:gold;margin-top:8px;text-align:center">✅ Auto Save ON - Panyaa Capital</p>
+</div>
+
+<h3>👤 Personal Info</h3>
+<div class="row"><input id="name" placeholder="Full Name * - Ex: Pawan Kota"><input id="city" placeholder="City - Ex: Amravati"></div>
+<div class="row"><input id="mobile" placeholder="Mobile"><input id="email" placeholder="Email"></div>
+<div class="row"><input id="father" placeholder="Father's Name"><input id="mother" placeholder="Mother's Name"></div>
+<div class="row"><input id="dob" placeholder="DOB"><input id="lang" placeholder="Languages"></div>
+
+<h3>📷 Photo - Optional</h3>
+<input type="file" id="photo" accept="image/*" onchange="previewPhoto(event)">
+<div style="display:flex;gap:10px;align-items:center;margin-top:6px">
+<img id="photoPreview" style="display:none;width:90px;height:110px;object-fit:cover;border:2px solid gold;border-radius:8px;">
+<label style="font-size:11px"><input type="checkbox" id="showPhoto" checked onchange="updatePreview()" style="width:auto"> Show Photo</label>
+<button class="btn btn-del" onclick="removePhoto()">✕ Remove</button>
+</div>
+
+<h3>🎯 Career Objective</h3>
+<textarea id="objective" rows="3" placeholder="Write your career objective..."></textarea>
+
+<h3>🎓 Education Table - Jitke Pahije Titke Add Kar!</h3>
+<div id="eduContainer">
+<div class="edu-box"><div class="row"><input placeholder="Qualification"><input placeholder="School / Institute"><input placeholder="Year"><input placeholder="Percentage"></div><button class="btn btn-del del" onclick="this.parentElement.remove();updatePreview();autoSave()">✕ Remove</button></div>
+</div>
+<button class="btn btn-gold" onclick="addEdu()">+ Add Education Box</button>
+
+<h3>💻 Technical Skills</h3>
+<div id="skillContainer"><div class="edu-box"><input placeholder="Skill - Ex: MS Word"><button class="btn btn-del del" onclick="this.parentElement.remove();updatePreview();autoSave()">✕</button></div></div>
+<button class="btn btn-gold" onclick="addSkill()">+ Add Skill</button>
+
+<h3>💪 Strengths & Hobbies</h3>
+<div id="strengthContainer"><div class="edu-box"><input placeholder="Strength - Ex: Hardworking"><button class="btn btn-del del" onclick="this.parentElement.remove();updatePreview();autoSave()">✕</button></div></div>
+<button class="btn" onclick="addStrength()">+ Add Strength</button>
+<input id="hobbies" placeholder="Hobbies - Ex: Reading, Learning">
+<textarea id="declaration" placeholder="Declaration">I hereby declare that the information provided above is true and correct to the best of my knowledge and belief.</textarea>
+<div class="row"><input id="place" placeholder="Place"><input id="date" placeholder="Date"></div>
+
+<div style="display:flex;gap:10px;margin-top:15px;flex-wrap:wrap">
+<button class="btn-gold" style="flex:1;padding:12px;border-radius:30px;border:none;font-weight:900;cursor:pointer" onclick="updatePreview()">👁️ Preview</button>
+<button style="flex:1;padding:12px;border-radius:30px;background:#000;color:#fff;border:none;font-weight:900;cursor:pointer" onclick="window.print()">🖨️ Print A4</button>
+<button style="flex:1;padding:12px;border-radius:30px;background:gold;color:#000;border:none;font-weight:900;cursor:pointer" onclick="saveAsHTML()">💾 Save File</button>
+</div>
+</div>
+
+<div class="print-bar hide-print" id="printBar"><button onclick="document.getElementById('builder').scrollIntoView({behavior:'smooth'})">⬅ Edit</button><button style="background:gold;color:#000" onclick="window.print()">🖨️ Print / PDF</button><button style="background:#000;color:#fff" onclick="saveAsHTML()">💾 Save</button></div>
+
+<div class="page" id="page">
+<img id="pPhoto"><h1 id="pName">Your Full Name</h1><div class="contact" id="pContact"></div><hr><h2>Career Objective</h2><p id="pObjective"></p><h2>Educational Qualification</h2><table id="pTable"><tr><th>Qualification</th><th>School</th><th>Year</th><th>%</th></tr></table><h2>Technical Skills</h2><ul id="pSkills"></ul><h2>Personal Details</h2><div class="details" id="pDetails"></div><h2>Strengths</h2><ul id="pStrengths"></ul><h2>Hobbies</h2><p id="pHobbies"></p><h2>Declaration</h2><p id="pDeclaration"></p><p><b>Place:</b> <span id="pPlace"></span></p><p><b>Date:</b> <span id="pDate"></span></p><div class="signature"><b>Signature</b><br><br><span id="pSign">Your Name</span></div>
+</div>
+
+<script>
+// SAME FUNCTIONS AS YOUR CODE + TOGGLE LOGIC
+let photoDataURL="";
+function previewPhoto(e){let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=x=>{photoDataURL=x.target.result;document.getElementById('photoPreview').src=photoDataURL;document.getElementById('photoPreview').style.display='block';updatePreview();autoSave();};r.readAsDataURL(f);}
+function removePhoto(){photoDataURL="";document.getElementById('photo').value="";document.getElementById('photoPreview').style.display='none';document.getElementById('pPhoto').style.display='none';updatePreview();autoSave();}
+function getFormData(){let edu=[];document.querySelectorAll('#eduContainer .edu-box').forEach(b=>{let i=b.querySelectorAll('input');edu.push({q:i[0]?.value||'',s:i[1]?.value||'',y:i[2]?.value||'',p:i[3]?.value||''});});let skills=[];document.querySelectorAll('#skillContainer .edu-box input').forEach(i=>{if(i.value)skills.push(i.value);});let strengths=[];document.querySelectorAll('#strengthContainer .edu-box input').forEach(i=>{if(i.value)strengths.push(i.value);});return{name:document.getElementById('name').value,city:document.getElementById('city').value,mobile:document.getElementById('mobile').value,email:document.getElementById('email').value,father:document.getElementById('father').value,mother:document.getElementById('mother').value,dob:document.getElementById('dob').value,lang:document.getElementById('lang').value,objective:document.getElementById('objective').value,hobbies:document.getElementById('hobbies').value,declaration:document.getElementById('declaration').value,place:document.getElementById('place').value,date:document.getElementById('date').value,education:edu,skills:skills,strengths:strengths,photo:photoDataURL,showPhoto:document.getElementById('showPhoto').checked,savedAt:new Date().toLocaleString()};}
+function saveToStorage(){let d=getFormData();localStorage.setItem('resume_file',JSON.stringify(d));document.getElementById('saveStatus').innerText='✅ Saved - '+d.savedAt;}
+function autoSave(){saveToStorage();updatePreview();}
+function loadSaved(){let s=localStorage.getItem('resume_file');if(!s){alert('Kahi saved nahi!');return;}let d=JSON.parse(s);document.getElementById('name').value=d.name||'';document.getElementById('city').value=d.city||'';document.getElementById('mobile').value=d.mobile||'';document.getElementById('email').value=d.email||'';document.getElementById('father').value=d.father||'';document.getElementById('mother').value=d.mother||'';document.getElementById('dob').value=d.dob||'';document.getElementById('lang').value=d.lang||'';document.getElementById('objective').value=d.objective||'';document.getElementById('hobbies').value=d.hobbies||'';document.getElementById('declaration').value=d.declaration||'';document.getElementById('place').value=d.place||'';document.getElementById('date').value=d.date||'';photoDataURL=d.photo||'';if(photoDataURL){document.getElementById('photoPreview').src=photoDataURL;document.getElementById('photoPreview').style.display='block';}document.getElementById('showPhoto').checked=d.showPhoto!==false;let ec=document.getElementById('eduContainer');ec.innerHTML='';(d.education||[]).forEach(e=>{let div=document.createElement('div');div.className='edu-box';div.innerHTML=`<div class="row"><input value="${e.q}"><input value="${e.s}"><input value="${e.y}"><input value="${e.p}"></div><button class="btn btn-del del" onclick="this.parentElement.remove();updatePreview();autoSave()">✕ Remove</button>`;ec.appendChild(div);});let sc=document.getElementById('skillContainer');sc.innerHTML='';(d.skills||[]).forEach(s=>{let div=document.createElement('div');div.className='edu-box';div.innerHTML=`<input value="${s}"><button class="btn btn-del del" onclick="this.parentElement.remove();updatePreview();autoSave()">✕</button>`;sc.appendChild(div);});let stc=document.getElementById('strengthContainer');stc.innerHTML='';(d.strengths||[]).forEach(s=>{let div=document.createElement('div');div.className='edu-box';div.innerHTML=`<input value="${s}"><button class="btn btn-del del" onclick="this.parentElement.remove();updatePreview();autoSave()">✕</button>`;stc.appendChild(div);});document.getElementById('saveStatus').innerText='📂 Loaded - '+d.savedAt;updatePreview();}
+function clearSaved(){localStorage.removeItem('resume_file');document.getElementById('saveStatus').innerText='🗑️ Clear zala!';}
+function downloadFile(c,n,t){let b=new Blob([c],{type:t});let u=URL.createObjectURL(b);let a=document.createElement('a');a.href=u;a.download=n;a.click();URL.revokeObjectURL(u);document.getElementById('saveStatus').innerText='💾 Downloaded: '+n;}
+function saveAsHTML(){updatePreview();let p=document.getElementById('page').outerHTML;let h=`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Resume</title><style>body{margin:0;background:#fff} .page{width:210mm;min-height:297mm;margin:auto;padding:15mm 18mm;background:#fff;font-family:"Times New Roman",serif;position:relative} h1{text-align:center;font-size:25px} .contact{text-align:center;font-size:13px} hr{border:0;border-top:2px solid #222} h2{font-size:16px;border-bottom:1px solid #333} p,li,td{font-size:13px} table{width:100%;border-collapse:collapse} th,td{border:1px solid #555;padding:6px} th{background:#eee} #pPhoto{width:95px;height:115px;object-fit:cover;border:1.5px solid #333;border-radius:8px;position:absolute;top:15mm;right:18mm}</style></head><body>${p}</body></html>`;downloadFile(h,(document.getElementById('name').value||'Resume')+'_Resume.html','text/html');}
+function saveAsJSON(){let d=getFormData();downloadFile(JSON.stringify(d,null,2),(d.name||'Resume')+'_ResumeData.json','application/json');}
+function saveAsText(){let d=getFormData();let t=`Name: ${d.name}\nCity: ${d.city}\nMobile: ${d.mobile}\nEmail: ${d.email}\nObjective:\n${d.objective}\nEducation:\n${d.education.map(e=>`${e.q} | ${e.s} | ${e.y} | ${e.p}`).join('\n')}\nSkills:\n${d.skills.join('\n')}\nStrengths:\n${d.strengths.join('\n')}\nHobbies: ${d.hobbies}\nDeclaration: ${d.declaration}\nPlace: ${d.place} Date: ${d.date}`;downloadFile(t,(d.name||'Resume')+'_Resume.txt','text/plain');}
+function addEdu(){let d=document.createElement('div');d.className='edu-box';d.innerHTML=`<div class="row"><input placeholder="Qualification"><input placeholder="School"><input placeholder="Year"><input placeholder="Percentage"></div><button class="btn btn-del del" onclick="this.parentElement.remove();updatePreview();autoSave()">✕ Remove</button>`;document.getElementById('eduContainer').appendChild(d);autoSave();}
+function addSkill(){let d=document.createElement('div');d.className='edu-box';d.innerHTML=`<input placeholder="New Skill"><button class="btn btn-del del" onclick="this.parentElement.remove();updatePreview();autoSave()">✕</button>`;document.getElementById('skillContainer').appendChild(d);autoSave();}
+function addStrength(){let d=document.createElement('div');d.className='edu-box';d.innerHTML=`<input placeholder="New Strength"><button class="btn btn-del del" onclick="this.parentElement.remove();updatePreview();autoSave()">✕</button>`;document.getElementById('strengthContainer').appendChild(d);autoSave();}
+function updatePreview(){let name=document.getElementById('name').value||'Your Full Name';let city=document.getElementById('city').value||'Your City';let mobile=document.getElementById('mobile').value||'___________';let email=document.getElementById('email').value||'___________';let father=document.getElementById('father').value||'___________';let mother=document.getElementById('mother').value||'___________';let lang=document.getElementById('lang').value||'___________';let objective=document.getElementById('objective').value;let hobbies=document.getElementById('hobbies').value;let declaration=document.getElementById('declaration').value;let place=document.getElementById('place').value||'___________';let date=document.getElementById('date').value||'___________';document.getElementById('pName').innerText=name;document.getElementById('pContact').innerHTML=`${city}<br>Mobile: ${mobile} | Email: ${email}`;document.getElementById('pObjective').innerText=objective;document.getElementById('pHobbies').innerText=hobbies;document.getElementById('pDeclaration').innerText=declaration;document.getElementById('pPlace').innerText=place;document.getElementById('pDate').innerText=date;document.getElementById('pSign').innerText=name;let pPhoto=document.getElementById('pPhoto');let show=document.getElementById('showPhoto').checked;if(photoDataURL&&show){pPhoto.src=photoDataURL;pPhoto.style.display='block';}else{pPhoto.style.display='none';}let table=document.getElementById('pTable');table.innerHTML='<tr><th>Qualification</th><th>School</th><th>Year</th><th>%</th></tr>';document.querySelectorAll('#eduContainer .edu-box').forEach(b=>{let i=b.querySelectorAll('input');let q=i[0]?.value||'';let s=i[1]?.value||'';let y=i[2]?.value||'';let p=i[3]?.value||'';if(q||s){let tr=document.createElement('tr');tr.innerHTML=`<td>${q}</td><td>${s}</td><td>${y}</td><td>${p}</td>`;table.appendChild(tr);}});let skillsUl=document.getElementById('pSkills');skillsUl.innerHTML='';document.querySelectorAll('#skillContainer .edu-box input').forEach(i=>{if(i.value){let li=document.createElement('li');li.innerText=i.value;skillsUl.appendChild(li);}});let details=document.getElementById('pDetails');details.innerHTML=`<p><b>Father:</b> ${father}</p><p><b>Mother:</b> ${mother}</p><p><b>Nationality:</b> Indian</p><p><b>Location:</b> ${city}</p><p><b>Languages:</b> ${lang}</p>`;let strUl=document.getElementById('pStrengths');strUl.innerHTML='';document.querySelectorAll('#strengthContainer .edu-box input').forEach(i=>{if(i.value){let li=document.createElement('li');li.innerText=i.value;strUl.appendChild(li);}});document.getElementById('page').style.display='block';document.getElementById('printBar').style.display='flex';}
+let currentOpen=null;
+function openBox(id){if(currentOpen===id){closeBox(id);return;}document.querySelectorAll('.content-box').forEach(b=>b.classList.remove('show'));document.getElementById(id).classList.add('show');currentOpen=id;document.getElementById(id).scrollIntoView({behavior:'smooth'});}
+function closeBox(id){document.getElementById(id).classList.remove('show');currentOpen=null;}
+document.addEventListener('input',()=>{clearTimeout(window.autoSaveTimer);window.autoSaveTimer=setTimeout(()=>{saveToStorage();},1000);});
+window.onload=()=>{updatePreview();}
+</script>
+</body>
+</html>
